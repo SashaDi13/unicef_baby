@@ -1,0 +1,51 @@
+footer.pb-1
+  .container
+    .row.justify-content-start.align-items-center.start-md
+      .col-xl-7.col-lg-6
+        /.bg-footer-img
+        = image_tag "main-footer.png", class: "imgs footer-img"
+
+      .col-xl-4.col-lg-6
+        h1.header-text Все в єдиному додатку
+        p.text.tx-pr Більше не потрібно срізних трекерів, табличок з нормами і сотні книжок. Ми зібрали все, що вам потрібно в одному додатку
+        .d-inline-flex.downl-btn
+          = button_tag class: "btn btn-dark px-3 downl-butt"
+            .d-flex
+              = image_tag "apple.png", class: "downl-img me-3"
+
+              div
+                p.downl-text.mb-2 Завантажити на
+                p.downl-main-text.mb-0 APP STORE
+          = button_tag class: "btn btn-dark px-3 ms-4 downl-butt"
+            .d-flex
+              = image_tag "play-m.png", class: "downl-img me-1"
+
+              div
+                p.downl-text.mb-2 Завантажити на
+                p.downl-main-text.mb-0 GOOGLE PLAY
+  hr.br-top
+  .container
+    .row.align-items-center.justify-content-between.mb-5
+      .col-lg-3.col-md-5.foot-el.col-12
+        = image_tag "brand_footer.png", clas: "imgs"
+
+        .copy-text
+          | ©
+          = Date.current.year
+          span &nbsp;&nbsp;Маля і Ви. Всі права захищенo
+      .col-lg-3.col-md-5.text-center.foot-el.col-12
+        = image_tag "company.png", clas: "imgs"
+
+      .col-lg-2.col-md-5.text-center.foot-el.col-12
+        .row.justify-content-center
+          .col-lg-4.col-md-3.col-2
+            = image_tag "facebook.png", class: "social-net"
+
+          .col-lg-4.col-md-3.col-2
+            = image_tag "instagram.png", class: "social-net"
+
+          .col-lg-4.col-md-3.col-2
+            = image_tag "telegram.png", class: "social-net"
+
+      .col-lg-3.col-md-5.text-center.foot-el.col-12
+        = image_tag "softserve.png", clas: "imgs"

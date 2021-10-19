@@ -1,28 +1,36 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  .container-fluid
-    a.navbar-brand href="#"  Navbar
-    button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button"
-      span.navbar-toggler-icon
+nav.navbar.navbar-expand-lg.navbar-light
+  .bg-1
+  .bg-2
+  .container
+    = link_to class: "navbar-brand"
+      =image_tag "brand.png", class: "imgs nav-brand"
+
+    = button_tag class: "navbar-toggler nav-btn", aria_controls: "navbarSupportedContent", aria_expanded: "false", aria_label: "Toggle navigation", data_bs_target: "#navbarSupportedContent", data_bs_toggle: "collapse", type: "button"
+      span.navbar-toggler-icon.nav-icon
     #navbarSupportedContent.collapse.navbar-collapse
-      ul.navbar-nav.me-auto.mb-2.mb-lg-0
-        li.nav-item
-          a.nav-link.active aria-current="page" href="#"  Home
-        li.nav-item
-          a.nav-link href="#"  Link
-        li.nav-item.dropdown
-          a#navbarDropdown.nav-link.dropdown-toggle aria-expanded="false" data-bs-toggle="dropdown" href="#" role="button"
-            | Dropdown
-          ul.dropdown-menu aria-labelledby="navbarDropdown"
-            li
-              a.dropdown-item href="#"  Action
-            li
-              a.dropdown-item href="#"  Another action
-            li
-              hr.dropdown-divider/
-            li
-              a.dropdown-item href="#"  Something else here
-        li.nav-item
-          a.nav-link.disabled Disabled
+      ul.nav.m-auto.mb-2.mb-lg-0.ps-5
+        li.nav-item.ms-5.menu-link
+          = link_to "Головна", root_path, class: "nav-link menu active", aria_current: "page"
+
+          hr.hr.act
+        li.nav-item.ms-5.menu-link
+          = link_to "Про нас", about_path, class: "nav-link menu"
+
+          hr.hr
+        li.nav-item.ms-5.menu-link
+          = link_to "Поради", advises_path, class: "nav-link menu"
+
+          hr.hr
+        li.nav-item.ms-5.menu-link
+          = link_to "Контакти", contact_path, class: "nav-link menu"
+
+          hr.hr
       form.d-flex
-        input.form-control.me-2 aria-label="Search" placeholder="Search" type="search" /
-        button.btn.btn-outline-success type="submit"  Search
+        = search_field_tag "Search", "", class: "input form-control me-2 btn-br"
+        = button_tag class: "btn"
+          =image_tag "search_header.png"
+
+    .bg-3
+    .bg-4
+    .bg-about-1
+    .bg-about-2

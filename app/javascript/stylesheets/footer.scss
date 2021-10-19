@@ -1,0 +1,47 @@
+footer {
+  background: linear-gradient(128.33deg, rgb(28, 171, 226, 0.57) 0%, rgba(28, 171, 226, 0) 85.29%);
+}
+
+.copy-text {
+  font-size: 16px;
+  line-height: 22px;
+  color: $copy-text;
+  opacity: 0.8;
+}
+
+.footer-img {
+  position: relative;
+  z-index: 2;
+}
+
+.bg-footer-img {
+  position: absolute;
+  border-radius: 50%;
+  width: 38%;
+  height: 52%;
+  left: 7%;
+  bottom: -200%;
+  z-index: 1;
+
+  background: linear-gradient(261.34deg, #3AC0F3 2.71%, #4CC5F3 98.11%);
+  filter: blur(21px);
+  opacity: 0.8;
+
+}
+
+.br-top {
+  background-color: $menu-color;
+  opacity: 0.8;
+}
+
+@media (max-width: '1140px') {
+  .copy-text {
+    font-size: 10px;
+  }
+}
+@media (max-width: '991px') {
+  .foot-el {
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+}

@@ -1,9 +1,8 @@
 doctype html
 html
   head
-    /= display_meta_tags site: UnicefBaby /!
-    title
-    | UnicefBaby
+    = display_meta_tags site: "UnicefBaby"
+    
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
     meta name="viewport" content="width=device-width,initial-scale=1" /
     = csrf_meta_tags
@@ -16,3 +15,4 @@ html
   body
     = render partial: 'static_pages/header'
     = yield
+    = render partial: 'static_pages/footer'

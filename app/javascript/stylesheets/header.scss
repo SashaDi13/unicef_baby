@@ -1,0 +1,121 @@
+.bg-1 {
+  position: absolute;
+  width: 565px;
+  height: 565px;
+  border-radius: 50%;
+  background-color: $menu-color;
+  left: -10%;
+  top: -250%;
+  opacity: 0.1;
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.bg-2 {
+  position: absolute;
+  width: 148px;
+  height: 148px;
+  left: 23%;
+  top: 85%;
+  border-radius: 50%;
+  background-color: $menu-color;
+  opacity: 0.1;
+  filter: blur(20px);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.bg-3 {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  left: 88%;
+  top: 170%;
+  border-radius: 50%;
+  background-color: $menu-color;
+  opacity: 0.2;
+  filter: blur(4px);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.bg-4 {
+  position: absolute;
+  width: 125px;
+  height: 125px;
+  left: 55%;
+  top: 530%;
+  border-radius: 50%;
+  background-color: $menu-color;
+  opacity: 0.3;
+  filter: blur(20px);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.bg-about-1 {
+  position: absolute;
+  z-index: 1;
+  width: 43px;
+  height: 43px;
+  left: 1005px;
+  top: 1190px;
+  border-radius: 50%;
+  background-color: $menu-color;
+  opacity: 0.2;
+  filter: blur(20px);
+  transform: rotate(-180deg);
+}
+
+.bg-about-2 {
+  position: absolute;
+  z-index: 1;
+  width: 114px;
+  height: 114px;
+  left: 1073px;
+  top: 1250px;
+  border-radius: 50%;
+  background-color: $menu-color;
+  opacity: 0.1;
+  filter: blur(4px);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.hr {
+  display: none;
+  margin: 0;
+  margin-left: 35%;
+  width: 30%;
+  height: 2px !important;
+  color: $menu-color;
+  opacity: 0.8;
+}
+
+.act {
+  display: block;
+}
+
+.btn-br {
+  border: 0;
+}
+
+.menu {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: $menu-color;
+  opacity: 0.8;
+}
+
+@media (max-width: '1140px') {
+  .menu-link {
+    margin-left: 8px !important;
+  }
+
+  .menu {
+    padding: 8px;
+  }
+}
+
+@media (max-width: '720px') {
+  .nav-brand {
+    width: 80%;
+  }
+}

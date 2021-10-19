@@ -1,2 +1,21 @@
-h1 StaticPages#contact
-p Find me in app/views/static_pages/contact.html.slim
+.container.page
+  .row.mb-5.start-md
+    .col-md-8.col-12
+      h2.header-second.mb-2 Контакти
+      p.text.text-about Якщо у вас є кометарі чи запитання, будь ласка, зв'яжіться з нами
+      h4.about-header.mb-4.mt-5 Офіс Дитячого фонду ООН в Україні
+      p.text.opac.bl-color Адреса: 01021 м. Київб вул. Інституцька, 28
+      p.text.opac.bl-color Телефон: +380 44 339 93 75
+      p.text.opac.bl-color.dis-fl Email:&nbsp;
+      = link_to "kiev@unicef.org", contact_path, class: "adress text opac dis-fl"
+
+      h5.about-header.mt-5 Ми у соціальних мережах
+      .row.justify-content-start.mt-4.mb-5
+        .col-1
+          = image_tag "facebook.png", class: "social-net"
+
+        .col-1
+          = image_tag "instagram.png", class: "social-net"
+
+        .col-1
+          = image_tag "telegram.png", class: "social-net"
