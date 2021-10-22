@@ -47,6 +47,6 @@ section.articles.mb-5
     p.text.text-about Виберіть категорію, щоб почати статті за темою
     /.row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
     /  -@articles.first(4).each do |article|
-      /  =render partial: 'articles/article'
+      /  =render partial: 'articles/article', locals: { article: article }
     .text-center
       =button_tag "ПЕРЕГЛЯНУТИ ВСІ СТАТТІ", class: "btn btn-primary btn-lg btn-all-art px-5 py-3 mt-5"

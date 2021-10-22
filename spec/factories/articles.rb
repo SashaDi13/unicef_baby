@@ -10,7 +10,7 @@ FactoryBot.define do
     category
 
     trait :with_image do
-      image { Rack::Test::UploadedFile.new(Rails.root + "spec/files/#{rand(1..10)}.jpg", 'image/jpeg') }
+      image { Rack::Test::UploadedFile.new(Rails.root + "spec/files/articles/#{rand(1..4)}.png", 'image/png') }
     end
   end
 end

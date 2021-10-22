@@ -4,3 +4,85 @@
   border-bottom: 2px solid $menu-color;
   border-width: 50%;
 }
+
+.bg-about-1 {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 43px;
+  height: 43px;
+  left: 69%;
+  top: 118%;
+  border-radius: 50%;
+  background-color: $menu-color;
+  opacity: 0.2;
+  filter: blur(20px);
+  transform: rotate(-180deg);
+}
+
+.bg-about-2 {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 114px;
+  height: 114px;
+  left: 73%;
+  top: 123%;
+  border-radius: 50%;
+  background-color: $menu-color;
+  opacity: 0.1;
+  filter: blur(4px);
+  transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+@media (max-width: '1024px') {
+  .bg-about-1 {
+    left: 69%;
+    top: 142%;
+  }
+
+  .bg-about-2 {
+    left: 73%;
+    top: 147%;
+  }
+}
+
+@media (max-width: '768px') {
+  .bg-about-1 {
+    left: 55%;
+    top: 195%;
+  }
+
+  .bg-about-2 {
+    left: 59%;
+    top: 200%;
+  }
+}
+
+@media (max-width: '720px') {
+  .bg-about-1 {
+    left: 50%;
+    top: 210%;
+  }
+
+  .bg-about-2 {
+    left: 54%;
+    top: 215%;
+  }
+}
+
+@media (max-width: '424px') {
+  .bg-about-1 {
+    width: 43px;
+    height: 43px;
+    left: 45%;
+    top: 220%;
+  }
+
+  .bg-about-2 {
+    width: 114px;
+    height: 114px;
+    left: 49%;
+    top: 225%;
+  }
+}

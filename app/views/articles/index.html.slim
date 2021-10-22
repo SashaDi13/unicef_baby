@@ -3,4 +3,4 @@
   p.text.text-about Виберіть категорію, щоб почати статті за темою
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
     - @articles.each do |article|
-      = render partial: 'articles/article'
+      = render partial: 'articles/article', locals: { article: article }
