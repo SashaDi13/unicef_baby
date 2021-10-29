@@ -1,0 +1,40 @@
+.show-title {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 44px;
+  text-decoration: none;
+  color: $copy-text;
+}
+
+.author {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 0.1px;
+  color: $copy-text
+}
+
+.author-job {
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.4px;
+  color: $text;
+}
+
+.show-author {
+  width: 100%;
+}
+
+.text-descr {
+  margin-top: 20px;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  letter-spacing: 0.005em;
+  color: $copy-text;
+
+}
+
+.bg-0 {
+  border: none;
+}
