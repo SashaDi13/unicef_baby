@@ -3,7 +3,7 @@
     =image_tag article.image.url, class: "card-img-top"
     .card-body
       h5.card-title.about-header = article.title
-      =link_to advises_path, class: "btn btn-more"
+      /=link_to article_path(article), class: "btn btn-more"
         span
           | Читати більше &nbsp;&nbsp;
           i.fal.fa-arrow-right

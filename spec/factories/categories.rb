@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :category do
-    name {Category::NAME.each}
+    name { Category::NAMES.sample }
   end
 end

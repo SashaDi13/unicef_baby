@@ -10,12 +10,4 @@
       = link_to "kiev@unicef.org", contact_path, class: "adress text opac dis-fl"
 
       h5.about-header.mt-5 Ми у соціальних мережах
-      .row.justify-content-start.mt-4.mb-5
-        .col-1
-          = image_tag "facebook.png", class: "social-net"
-
-        .col-1
-          = image_tag "instagram.png", class: "social-net"
-
-        .col-1
-          = image_tag "telegram.png", class: "social-net"
+      = render partial: 'static_pages/social_net'

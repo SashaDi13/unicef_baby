@@ -1,8 +1,23 @@
 .container
-  h2 = @article.title
-  .card.rounded-6
-    =image_tag "2.png", class: "card-img-top"
-    .card-body
-      p = @article.description
-  p Теги
-    = @article.category
+  .row
+    .col-8
+      h2.show-title = @article.title
+        = render partial: 'static_pages/share'
+
+      .row
+        .col-1
+          =image_tag "photo.png", class: "show-author"
+        .col-3
+          p.author Марія Сонницька
+          p.author-job Експерт зі сну
+
+      .card.rounded-6.bg-0
+        =image_tag @article.image.url, class: "card-img-top"
+        .card-body
+          p.text-descr = @article.description
+      p.share Теги
+      = @article.category
+      p.share Поділитися
+      = render partial: 'static_pages/share'
+    .col-4
+      h-4 Схожі статті

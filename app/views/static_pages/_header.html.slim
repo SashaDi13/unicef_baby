@@ -1,30 +1,26 @@
 nav.navbar.navbar-expand-lg.navbar-light
   .bg-1
   .bg-2
-  .container
+  .container-fluid
     = link_to class: "navbar-brand"
       =image_tag "brand.png", class: "imgs nav-brand"
 
-    = button_tag class: "navbar-toggler nav-btn", aria_controls: "navbarSupportedContent", aria_expanded: "false", aria_label: "Toggle navigation", data_bs_target: "#navbarSupportedContent", data_bs_toggle: "collapse", type: "button"
+    = button_tag class: "navbar-toggler nav-btn", 'aria-controls': "navbarSupportedContent", 'aria-expanded': "false", 'aria-label': "Toggle navigation", 'data-bs-target': "#navbarSupportedContent", 'data-bs-toggle': "collapse", type: "button"
       span.navbar-toggler-icon.nav-icon
     #navbarSupportedContent.collapse.navbar-collapse
-      ul.nav.m-auto.mb-2.mb-lg-0.ps-5
+      ul.navbar-nav.m-auto.mb-2.mb-lg-0.ps-5.text-center
         li.nav-item.ms-5.menu-link
-          = link_to "Головна", root_path, class: "nav-link menu active", aria_current: "page"
+          = link_to "Головна", root_path, class: "nav-link menu active", 'aria-current': "page"
 
-          hr.hr.act
         li.nav-item.ms-5.menu-link
           = link_to "Про нас", about_path, class: "nav-link menu"
 
-          hr.hr
         li.nav-item.ms-5.menu-link
           = link_to "Поради", advises_path, class: "nav-link menu"
 
-          hr.hr
         li.nav-item.ms-5.menu-link
           = link_to "Контакти", contact_path, class: "nav-link menu"
 
-          hr.hr
       form.d-flex
         = search_field_tag "Search", "", class: "input form-control me-2 btn-br"
         = button_tag class: "btn"
