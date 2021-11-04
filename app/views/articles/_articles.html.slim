@@ -1,0 +1,8 @@
+.container
+  h2.header-second.mb-2 Рекомендовані статті
+  p.text.text-about Виберіть категорію, щоб почати статті за темою
+  .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
+    - @articles.first(4).each do |article|
+      =render partial: 'article', locals: { article: article }
+  .text-center
+    = render 'share/button'

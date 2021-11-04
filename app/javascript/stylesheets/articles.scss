@@ -1,9 +1,21 @@
 .show-title {
+  display: inline-block;
+
+  width: 80%;
+  height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   font-weight: 800;
   font-size: 32px;
   line-height: 44px;
+
   text-decoration: none;
   color: $copy-text;
+
+  &:focus {
+    overflow: visible;
+  }
 }
 
 .author {
@@ -27,14 +39,104 @@
 
 .text-descr {
   margin-top: 20px;
+
+  height: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
   font-weight: normal;
   font-size: 16px;
   line-height: 19px;
   letter-spacing: 0.005em;
   color: $copy-text;
 
+  &:focus {
+    overflow: visible;
+  }
 }
 
 .bg-0 {
   border: none;
+}
+
+.rounded-6 {
+  border-radius: 0.6rem;
+}
+
+.art-header {
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.share-header {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 0.1px;
+  color: $text;
+}
+
+.mb {
+  margin-bottom: 35px;
+}
+
+.link-back {
+  color: black;
+  text-decoration: none !important;
+}
+
+.arrw-back {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 9px;
+  margin-right: 25px;
+  width: 30px;
+  height: 30px;
+}
+
+.category {
+  padding: 2px 12px;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.4px;
+
+  color: $category-color;
+
+  background: rgba(#FFC20E, 0.2);
+  border-radius: 20px;
+}
+
+.cat-tag {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 1.5px;
+
+  color: $text;
+}
+
+@media (max-width: '2561px') {
+  .fl-dir {
+    flex-direction: column;
+  }
+  .same-article-2 {
+    display: none;
+  }
+}
+
+@media (max-width: '768px') {
+  .fl-dir {
+    flex-direction: row;
+  }
+
+  .same-article-1 {
+    display: none;
+  }
+
+  .same-article-2 {
+    display: block;
+    text-align: center;
+  }
 }

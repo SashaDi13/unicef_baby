@@ -5,9 +5,6 @@ class StaticPagesController < ApplicationController
   def about
   end
 
-  def advises
-  end
-
   def contact
   end
 end
