@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
+  before_action :categories, only: [:index]
+
   def index
-    @categories = collection
   end
 
   def show
@@ -14,10 +15,6 @@ class CategoriesController < ApplicationController
     end
 
     def resource
-      # if params[:category_id]
-      #   collection.find(params[:category_id])
-      # else
       collection.find(params[:id])
-      # end
     end
 end

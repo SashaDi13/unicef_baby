@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :articles, only: [:index, :show]
 
-  resources :categories, only: [:index, :show] do
+  resources :categories, only: [:index, :show], path: 'advises' do
     resources :articles, only: [:index, :show]
   end
 end
