@@ -3,31 +3,17 @@
     .container
       .row.justify-content-between.start-md
         .bg-start
-        .col-xl-5.col-lg-6.col-md-8.col-12.mt.z-ind
-          h1.header-text Ми піклуємося про вас і вашу дитину!
-          p.text.tx-pr Разом з нашими експертами ми розробили додаток, що
+        .col-xl-5.col-lg-6.col-md-8.col-12.mt.z-ind.px
+          h1.header-text.pb-3 Ми піклуємося про вас і вашу дитину!
+          p.text.tx-pr.pb-3 Разом з нашими експертами ми розробили додаток, що
             допоможе зробити догляд за дитиною більш якісним, легшим і медично
             обґрунтованим.
-          .d-inline-flex.downl-btn
-            = button_tag class: "btn btn-dark px-3 downl-butt"
-              .d-flex
-                = image_tag "apple.png", class: "downl-img me-3"
-
-                div
-                  p.downl-text.mb-2 Завантажити на
-                  p.downl-main-text.mb-0 APP STORE
-            = button_tag class: "btn btn-dark px-3 ms-4 downl-butt"
-              .d-flex
-                = image_tag "play-m.png", class: "downl-img me-1"
-
-                div
-                  p.downl-text.mb-2 Завантажити на
-                  p.downl-main-text.mb-0 GOOGLE PLAY
-        .col-xl-4.col-lg-6.col-md-8.col-10.me-5
+          = render 'share/download_buttons'
+        .col-xl-4.col-lg-5.col-md-8.col-10.me-5.me
           = image_tag "main-picture.png", class: "imgs st-img"
           .bg-start-img
 
-  .about.mb-5.pb-5
+  .about.mb-5.py-5
     .container
       .row.pb-5.start-md
         .col-md-8.col-12
@@ -36,17 +22,10 @@
             Ми провели опитування серед батьків і знаємо, що вас турбує.
             Ми тут, щоб супроводжувати і підтримувати вас на кожному етапі життя
             вашого малюка.
-      = render partial: 'static_pages/about.html.slim'
+      = render 'about'
 
   .advises
-    = render partial: 'static_pages/advises.html.slim'
+    = render partial: 'categories/advises'
 
 section.articles.mb-5
-  .container
-    h2.header-second.mb-2 Рекомендовані статті
-    p.text.text-about Виберіть категорію, щоб почати статті за темою
-    /.row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
-    /  -@articles.first(4).each do |article|
-      /  =render partial: 'articles/article', locals: { article: article }
-    .text-center
-      =button_tag "ПЕРЕГЛЯНУТИ ВСІ СТАТТІ", class: "btn btn-primary btn-lg btn-all-art px-5 py-3 mt-5"
+  = render 'articles'

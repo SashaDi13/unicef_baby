@@ -1,23 +1,40 @@
-.container
-  .row
-    .col-8
-      h2.show-title = @article.title
-        = render partial: 'static_pages/share'
+.container.mt-3
+  .row.align-items-start
+    .col-lg-9.col-12
+      .row.align-items-start.justify-content-end
+        .col-md-9.col-12.pb-3
+          = link_to category_articles_path(@article.category_id), class: "link-back" do
+            span.show-title
+              i.fas.fa-arrow-left.arrw-back
+              = @article.title
+        .col-md-3.col-6.mt-3
+          = render 'share/share'
 
-      .row
-        .col-1
-          =image_tag "photo.png", class: "show-author"
-        .col-3
-          p.author Марія Сонницька
+      .row.mt-1
+        .col-md-1.col-2
+          =image_tag "photo.png", class: "show-author pb-2"
+        .col-xl-3.col-md-4.col-6
+          .author Марія Сонницька
           p.author-job Експерт зі сну
+    .col-md-3.mt-3
+      h-4.about-header.same-article-1 Схожі статті
 
+  .row
+    .col-lg-9.col-12
       .card.rounded-6.bg-0
         =image_tag @article.image.url, class: "card-img-top"
         .card-body
-          p.text-descr = @article.description
-      p.share Теги
-      = @article.category
-      p.share Поділитися
-      = render partial: 'static_pages/share'
-    .col-4
-      h-4 Схожі статті
+          p.text-descr.pb-2 = @article.description
+          p.share-header.pb-1 Теги
+          span.category = @article.category.name
+          p.share-header.mt-2.py-3 Поділитися
+          .row
+            .col-3.pb-5
+              = render 'share/share'
+
+    .col-lg-3.col-12
+      h-4.about-header.mb-5.same-article-2 Схожі статті
+      .row.fl-dir
+        -3.times do |article|
+          .col-lg-12.col-md-4.col-12
+            = render partial: 'article', locals: { article: @article }
