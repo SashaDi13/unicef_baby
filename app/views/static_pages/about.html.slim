@@ -8,7 +8,7 @@
       h5.about-header.mb-3 Концепція
       p.text.text-about.opac Мобільний додаток для батьків дітей 0-6 років, який допомагає батькам слідкувати за розвитком дитини і сприяє цьому процесу.
 
-  = render partial: 'static_pages/about.html.slim'
+  = render 'about'
 
 .container
   .row.mb-5.start-md
@@ -21,7 +21,7 @@
         p.about-header.text-about.opac Усі діти мають право виживати, процвітати та реалізовувати свій потенціал - на користь кращого світу.
         p.about-header.text-about.opac UNICEF
       p.text.text-about.opac.pt-5 Детальніше про ЮНІСЕФ читайте на офіційному сайті
-      =button_tag "ПЕРЕГЛЯНУТИ ВСІ СТАТТІ", class: "btn btn-primary btn-lg btn-all-art px-5 py-3 mt-1"
+      = link_to "ПЕРЕЙТИ НА САЙТ ЮНІСЕФ","https://www.google.com.ua/", class: "btn btn-primary btn-lg btn-all-art px-5 py-3 mt-5"
 
       h5.about-header.mt-5 Ми у соціальних мережах
-      =render partial: "static_pages/social_net"
+      = render "share/social_net"

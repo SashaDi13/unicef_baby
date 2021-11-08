@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '2.7.4'
 gem 'rails', '~> 6.1.4'
 gem 'faker'
 gem 'pg'
@@ -30,6 +30,7 @@ end
 
 group :test do
   gem 'capybara', '>= 3.26'
+  gem 'shoulda-matchers', '~> 3.0', require: false
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end

@@ -1,9 +1,14 @@
 .col.advs
-  .card.rounded-6
-    =image_tag article.image.url, class: "card-img-top"
+  .card.rounded-6.mb
+    = image_tag article.image.url, class: "card-img-top"
     .card-body
-      h5.card-title.about-header = article.title
-      /=link_to article_path(article), class: "btn btn-more"
+      .pb-1.px-2
+        span.cat-tag = article.category.name
+        span.cat-tag &nbsp; &#183; &nbsp;
+        span.cat-tag = time_ago_in_words(article.created_at)
+      .cart-header.py-2
+        h5.card-title.about-header.art-header = article.title
+      = link_to category_article_path(article.category_id, article), class: "btn btn-more pb-3 btn-more" do
         span
           | Читати більше &nbsp;&nbsp;
-          i.fal.fa-arrow-right
+          i.fas.fa-arrow-right
