@@ -1,0 +1,30 @@
+.bg-1
+.bg-2
+.nav.navbar.navbar-expand-lg.navbar-light
+  .container.container-fluid.pt-3
+    = link_to class: "navbar-brand" do
+      =image_tag "brand.png", class: "imgs nav-brand"
+
+    = button_tag class: "navbar-toggler nav-btn", 'aria-controls': "navbarSupportedContent", 'aria-expanded': "false", 'aria-label': "Toggle navigation", 'data-bs-target': "#navbarSupportedContent", 'data-bs-toggle': "collapse" do
+      span.navbar-toggler-icon.nav-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.m-auto.mb-2.mb-lg-0.ps-5.text-center
+        li.nav-item.ms-5.menu-link
+          = link_to "Головна", root_path, class: "nav-link menu #{active(root_path)}", 'aria-current': "page"
+
+        li.nav-item.ms-5.menu-link
+          = link_to "Про нас", about_path, class: "nav-link menu #{active(about_path)}"
+
+        li.nav-item.ms-5.menu-link
+          = link_to "Поради", categories_path, class: "nav-link menu #{active(categories_path)}"
+
+        li.nav-item.ms-5.menu-link
+          = link_to "Контакти", contact_path, class: "nav-link menu #{active(contact_path)}"
+
+      form.d-flex.justify-content-end
+        = search_field_tag "Search", "", class: "input form-control me-2 btn-br inp"
+        = link_to class: "btn" do
+          =image_tag "search_header.png"
+
+    .bg-3
+    .bg-4

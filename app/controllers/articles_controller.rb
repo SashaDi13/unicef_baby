@@ -1,10 +1,10 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = if params[:category_name]
-      collection.by_category_name(params[:category_name])
+    @articles = if params[:category_id]
+      collection.joined_includes_values
     else
       collection
-    end.ordered
+    end
   end
 
   def show
@@ -13,11 +13,11 @@ class ArticlesController < ApplicationController
 
   private
 
-  def collection
-    Article.published
-  end
+    def collection
+      Article.published
+    end
 
-  def resource
-    collection.find(params[:id])
-  end
+    def resource
+      collection.find(params[:id])
+    end
 end

@@ -1,0 +1,66 @@
+.downl-img {
+  width: auto;
+  height: 100%;
+}
+
+.downl-text {
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.4px;
+  color: $downl-text;
+
+  text-align: left;
+}
+
+.downl-main-text {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1.25px;
+  color: $downl-text;
+}
+
+.btn-all-art {
+  background: $menu-color;
+  border-color: $menu-color;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  // text-align: center;
+  letter-spacing: 1.25px;
+}
+//
+// @media (max-width: '2561px') and (max-height: '1789px') {
+//   .downl-img {
+//     width: auto;
+//     height: 100%;
+//   }
+//
+//   .downl-text {
+//     font-size: 10px;
+//     line-height: 12px;
+//     letter-spacing: 0.4px;
+//     color: $downl-text;
+//
+//     text-align: left;
+//   }
+//
+//   .downl-main-text {
+//     font-weight: bold;
+//     font-size: 14px;
+//     line-height: 16px;
+//     letter-spacing: 1.25px;
+//     color: $downl-text;
+//   }
+// }
+
+@media (max-width: '720px') {
+  .downl-butt {
+    margin: 5px 5px 15px 5px !important;
+  }
+
+  .downl-btn {
+    display: block !important;
+    justify-content: center;
+  }
+}

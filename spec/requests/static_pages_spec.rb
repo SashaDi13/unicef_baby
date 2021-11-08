@@ -1,31 +1,24 @@
 require 'rails_helper'
 
 RSpec.describe "StaticPages", type: :request do
-  describe "GET /main" do
+  describe "GET main" do
     it "returns http success" do
-      get "/static_pages/main"
-      expect(response).to have_http_status(:success)
+      get root_path
+      expect(response).to be_successful
     end
   end
 
-  describe "GET /about" do
+  describe "GET about" do
     it "returns http success" do
-      get "/static_pages/about"
-      expect(response).to have_http_status(:success)
+      get about_path
+      expect(response).to be_successful
     end
   end
 
-  describe "GET /advises" do
+  describe "GET contact" do
     it "returns http success" do
-      get "/static_pages/advises"
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET /contact" do
-    it "returns http success" do
-      get "/static_pages/contact"
-      expect(response).to have_http_status(:success)
+      get contact_path
+      expect(response).to be_successful
     end
   end
 
