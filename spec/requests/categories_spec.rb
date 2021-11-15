@@ -10,10 +10,10 @@ RSpec.describe "Categories", type: :request do
   end
 
   describe "GET /categories/:id" do
-    category = Category.find(1)
+    let(:category) { :helth }
 
     it "returns http success status" do
-      get category_articles_path(category.id)
+      get category_articles_path(:helth)
 
       expect(response).to be_successful
     end

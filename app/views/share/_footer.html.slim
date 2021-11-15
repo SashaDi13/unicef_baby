@@ -13,7 +13,8 @@ footer.pb-1
   .container
     .row.align-items-center.justify-content-between.mb-5
       .col-lg-3.col-md-5.foot-el.col-12.all-center.pb-3
-        = image_tag "brand_footer.png", clas: "imgs"
+        = link_to "https://www.unicef.org/ukraine/" do
+          = image_tag "brand_footer.png", clas: "imgs"
 
         .copy-text
           | ©
@@ -25,13 +26,17 @@ footer.pb-1
       .col-lg-2.col-md-5.text-center.foot-el.col-12.pb-3
         .row.justify-content-start.just-cont-beet
           .col-lg-4.col-md-3.col-2
-            = image_tag "facebook.png", class: "social-net"
+            = link_to "https://www.facebook.com/" do
+              = image_tag "facebook.png", class: "social-net"
 
           .col-lg-4.col-md-3.col-2
-            = image_tag "instagram.png", class: "social-net"
+            = link_to "https://www.instagram.com/" do
+              = image_tag "instagram.png", class: "social-net"
 
           .col-lg-4.col-md-3.col-2
-            = image_tag "telegram.png", class: "social-net"
+            = link_to "https://www.telegram.com/" do
+              = image_tag "telegram.png", class: "social-net"
 
       .col-lg-3.col-md-5.text-center.foot-el.col-12.pb-3
-        = image_tag "softserve.png", clas: "imgs"
+        = link_to "https://www.softserveinc.com/uk-ua" do
+          = image_tag "softserve.png", clas: "imgs"

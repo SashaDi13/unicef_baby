@@ -3,3 +3,13 @@ $copy-text: #2D2926;
 $downl-text: #FFFFFF;
 $text: #777779;
 $category-color: #FFC20E;
+$hower-color: #4CC5F3;
+
+
+.main-color {
+  color: $menu-color;
+
+  &:hover {
+    color: $hower-color;
+  }
+}

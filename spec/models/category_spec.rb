@@ -12,7 +12,7 @@ RSpec.describe Category, type: :model do
     end
 
     context "when category name is already taken" do
-      let(:category) { create(:category, name: "Годування") }
+      let(:category) { :add }
       let(:name) { category.name }
       it { is_expected.to be_invalid }
     end

@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
-  before_action :categories, only: [:main]
+  before_action :load_categories, only: [:main]
 
   def main
   end

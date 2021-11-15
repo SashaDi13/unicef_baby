@@ -81,8 +81,8 @@
   color: $menu-color;
   opacity: 0.8;
 
-  &:hover {
-    color: $menu-color;
+  &:hover, &:focus {
+    color: $hower-color !important;
   }
 }
 

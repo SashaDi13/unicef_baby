@@ -10,10 +10,10 @@ RSpec.describe "Articles", type: :request do
   end
 
   describe "GET /articles/:id" do
-    category = Category.find(1)
-    let(:article) { create(:article, category: category, published_at: Time.zone.now - 10.minutes) }
+    let(:category) { 1 }
+    let(:article) { create(:article, category_id: category, published_at: Time.zone.now - 10.minutes) }
     it "returns http success status" do
-      get category_article_path(category.id, article.id)
+      get article_path(article)
 
       expect(response).to be_successful
     end

@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :categories, only: [:index]
+  before_action :load_categories, only: [:index]
 
   def index
   end

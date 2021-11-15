@@ -20,4 +20,8 @@ class ArticlesController < ApplicationController
     def resource
       collection.find(params[:id])
     end
+
+    def find_article
+      @article = resource
+    end
 end
