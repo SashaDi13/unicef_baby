@@ -7,9 +7,25 @@ $hower-color: #4CC5F3;
 
 
 .main-color {
-  color: $menu-color;
+  color: $menu-color !important;
 
   &:hover {
-    color: $hower-color;
+    color: $hower-color !important;
+  }
+}
+
+.form-br-color {
+  border-color: $menu-color !important;
+
+  &:hover {
+    border-color: $hower-color !important;
+  }
+}
+
+.form-btn-color {
+  background-color: $menu-color;
+
+  &:hover {
+    border-color: $hower-color !important;
   }
 }

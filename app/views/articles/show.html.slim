@@ -29,12 +29,20 @@
           span.category = @article.category.name
           p.share-header.mt-2.py-3 Поділитися
           .row
-            .col-3.pb-5
+            .col-3
               = render 'share/share'
+
+            - if current_admin
+              .col-9.text-end
+                = link_to edit_category_article_path, class: "btn main-color" do
+                  i.fas.fa-pen
+
+                = link_to category_articles_path, class: "btn main-color", method: :delete do
+                  i.fas.fa-trash
 
     .col-lg-3.col-12
       h-4.about-header.mb-5.same-article-2 Схожі статті
       .row.fl-dir
         -3.times do |article|
           .col-lg-12.col-md-4.col-12
-            = render partial: 'article', locals: { article: @article }
+            = render partial: 'articles/article', locals: { article: @articles.find(rand(1..@articles.last.id)) }

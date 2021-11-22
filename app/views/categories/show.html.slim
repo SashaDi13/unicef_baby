@@ -2,7 +2,30 @@
   = link_to categories_path do
     h2.header-second.mb-2 = @category.name
   p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
-  p
+  .row
+    .col-6
+      form.d-flex.align-items-center.input-group
+        = link_to class: "btn", id: "button-addon1" do
+          =image_tag "search_header.png"
+        = search_field_tag "Search", "", class: "input form-control form-control-lg search-input",
+                                    placeholder: "Пошук",
+                                    aria_describedby: "button-addon1"
+
+    .col-2
+      select.form-select aria-label=("Будь-який вік") class="form-control form-select-lg search-input"
+        option selected="selected"  Будь-який вік
+        option value="1"  One
+        option value="2"  Two
+        option value="3"  Three
+
+    .col-4
+      select.form-select aria-label=("Тема") class="search-input form-control form-select-lg "
+        option selected="selected"  Всі теми
+        option value="1"  One
+        option value="2"  Two
+        option value="3"  Three
+
+
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
     - @category.articles.each do |article|
       = render partial: 'articles/article', locals: { article: article }

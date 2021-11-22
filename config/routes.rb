@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions: 'admins/sessions'
   }
+
+  resources :categories, only: [:index, :show], path: 'advises' do
+    resources :articles, only: [:index, :show, :edit, :destroy]
+  end
+
+  resources :articles, except: :show
 end

@@ -1,7 +1,10 @@
 .container
-  h2.header-second.mb-2 ВСІ СТАТТІ
-  p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
-  p
+  .row.justify-content-between.align-items-center
+    .col-12.col-md-9
+      h2.header-second.mb-2 ВСІ СТАТТІ
+      p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
+      p
+
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
     - @articles.each do |article|
       = render partial: 'articles/article', locals: { article: article }
