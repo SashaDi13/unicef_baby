@@ -4,12 +4,14 @@
   p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
   .row
     .col-6
-      form.d-flex.align-items-center.input-group
-        = link_to class: "btn", id: "button-addon1" do
-          =image_tag "search_header.png"
-        = search_field_tag "Search", "", class: "input form-control form-control-lg search-input",
-                                    placeholder: "Пошук",
-                                    aria_describedby: "button-addon1"
+      form.d-flex.align-items-center.input-group.bg-white.form-control-lg.search-input
+        = button_tag class: "btn btn-outline-secondary border-0", id: "button-addon1" do
+          i.fas.fa-search.text
+        = search_field_tag "Search", "", class: "input form-control border-0",
+                                    placeholder: "Пошук..",
+                                    aria_describedby: "button-addon1" do
+
+          i.fas.fa-search
 
     .col-2
       select.form-select aria-label=("Будь-який вік") class="form-control form-select-lg search-input"
