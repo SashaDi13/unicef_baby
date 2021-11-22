@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :category do
 
+    name { Category::NAMES[0] }
+
     trait :helth do
       name { Category::NAMES[3] }
     end
@@ -20,6 +22,6 @@ FactoryBot.define do
     trait :emergency do
       name { Category::NAMES[1] }
     end
-    
+
   end
 end

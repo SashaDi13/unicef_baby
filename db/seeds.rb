@@ -3,6 +3,7 @@ FactoryBot.create(:category, :feed)
 FactoryBot.create(:category, :secure)
 FactoryBot.create(:category, :add)
 FactoryBot.create(:category, :emergency)
+FactoryBot.create(:admin)
 
 
 Category.all.each do |category|

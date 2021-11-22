@@ -13,7 +13,6 @@ gem 'rails-controller-testing'
 gem 'webpacker', '~> 5.0'
 gem 'meta-tags'
 gem 'simplecov', require: false, group: :test
-gem 'simple_form'
 gem 'devise'
 gem 'rubyzip'
 gem 'sidekiq'
@@ -21,6 +20,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'carrierwave'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -5,10 +5,7 @@ Rails.application.routes.draw do
   get 'contact', to: 'static_pages#contact'
 
   # get '/categories/:name', to: 'categories#show'
-
-  resources :articles, only: [:index, :show]
-
-  resources :categories, only: [:index, :show], path: 'advises' do
-    resources :articles, only: [:index, :show]
-  end
+  devise_for :admins, controllers: {
+    sessions: 'admins/sessions'
+  }
 end
