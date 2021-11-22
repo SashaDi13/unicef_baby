@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+  meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+
+  body
+    h1 Article Creating
+    p You have successfully created article:
+
+    p
+      i Category:
+      br
+      span = @article.category.name
+    p
+      i Title:
+      h2 = @article.title
+    p
+      i Description
+      p = @article.description
+
+
+
+    h3 Thank you, for your advise!

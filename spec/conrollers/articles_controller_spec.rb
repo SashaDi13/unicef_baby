@@ -79,12 +79,5 @@ RSpec.describe ArticlesController, type: :controller do
         expect(response).to have_http_status(:redirect)
       end
     end
-
-    # describe "#download_images" do
-    #   it "should export zip file with all articles images" do
-    #     get :download_images, format: :zip
-    #     expect(response.headers['Content-Type']).to have_content 'text/zip'
-    #   end
-    # end
   end
 end
