@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :admin do
     login { "Max" }
-    email { "exemple@dot.net" }
-    password { "123456" }
+    email { "olecsandra.di@gmail.com" }
+    password { "123456unicef_baby" }
   end
 end
