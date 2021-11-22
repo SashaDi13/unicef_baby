@@ -4,6 +4,15 @@
       h2.header-second.mb-2 ВСІ СТАТТІ
       p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
       p
+    - if current_admin
+      .d-grid.gap-2.d-flex.col-3.col-md-1.text-end
+        = link_to download_images_articles_path, class: 'menu-color hower-color w-100' do
+          span
+            i.far.fa-file-archive alt: 'Download archive'
+        = link_to new_article_path, class: 'menu-color hower-color w-100' do
+          span
+            i.far.fa-plus-circle alt: 'Create new article'
+
 
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
     - @articles.each do |article|

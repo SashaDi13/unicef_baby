@@ -9,9 +9,13 @@ Rails.application.routes.draw do
     sessions: 'admins/sessions'
   }
 
-  resources :categories, only: [:index, :show], path: 'advises' do
-    resources :articles, only: [:index, :show, :edit, :destroy]
+  resources :articles, only: :index do
+    get 'download_images', on: :collection, defaults: { format: 'zip' }
   end
 
-  resources :articles, except: :show
+  resources :categories, only: [:index, :show], path: 'advises' do
+    resources :articles, only: [:index, :show, :edit, :destroy, :update]
+  end
+
+  resources :articles, except: [:show, :update]
 end

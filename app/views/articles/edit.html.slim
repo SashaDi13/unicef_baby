@@ -1,13 +1,12 @@
 .container
   .row.justify-content-center.my-5
     .col-6
-      h1 Edit Article
+      h1 Редагувати статтю
 
       = simple_form_for @article, url: category_article_path do |f|
         = f.error_notification
         = render partial: "form", locals: { f: f }
 
         .d-grid.gap-2.d-md-flex.justify-content-md-center
-
-          = f.button :submit, class: "btn-primary btn-lg form-btn-color form-br-color"
-          = f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary btn-lg main-color form-br-color cancel-btn"
+          = f.button :submit, "Редагувати", class: "btn-primary btn-lg form-btn-color form-br-color"
+          = f.button :button, "Скасувати", type: "reset", class: "btn-outline-secondary btn-lg main-color form-br-color cancel-btn"

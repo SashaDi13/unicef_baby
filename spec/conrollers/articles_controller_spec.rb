@@ -56,18 +56,16 @@ RSpec.describe ArticlesController, type: :controller do
 
     describe "PATCH #update" do
       it "returns http success if signed in as admin" do
-        # patch :update, params: { article: article_params }
-        # expect(response).to have_http_status(:redirect)
         article_params[:title] =  "Unko-chan"
 
-        patch :update, params: { id: article.id, article: article_params }
+        patch :update, params: { id: article.id, category_id: article.category_id, article: article_params }
 
         expect(article.reload.title).to  eq ("Unko-chan")
       end
 
       it 'does not create unit with invalid params' do
         article_params[:title] = nil
-        patch :update, params: { id: article.id, article: article_params }
+        patch :update, params: { id: article.id, category_id: article.category_id, article: article_params }
 
         expect(response).to render_template("articles/edit")
       end
@@ -77,6 +75,15 @@ RSpec.describe ArticlesController, type: :controller do
       it "return success if destroy article" do
         delete :destroy,  params: { id: article.id }
         expect(response).to have_http_status(:redirect)
+      end
+    end
+
+    describe "#download_images" do
+      let(:article) { create(:article, category_id: category, title: "New Article",
+                                       published_at: Time.zone.now - 10.minutes, image: "1.png") }
+      it "should export zip file with all articles images" do
+        get :download_images, format: :zip
+        expect(response.headers['Content-Type']).to have_content "application/zip"
       end
     end
   end

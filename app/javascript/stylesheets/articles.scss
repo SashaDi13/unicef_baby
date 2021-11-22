@@ -18,6 +18,21 @@
   }
 }
 
+.search-input {
+  border-color: white;
+  background: #FFFFFF;
+  box-shadow: 0px 2px 12px rgba(119, 119, 121, 0.08);
+  border-radius: 8px;
+}
+
+.cancel-btn {
+  background-color: white;
+
+  &:hover {
+    background-color: $menu-color;
+  }
+}
+
 .author {
   font-weight: bold;
   font-size: 14px;

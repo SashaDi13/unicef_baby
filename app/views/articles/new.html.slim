@@ -1,7 +1,7 @@
 .container
   .row.justify-content-center.my-5
     .col-6
-      h1 Create new Article
+      h1 Створити нову статтю
 
       = simple_form_for @article do |f|
 
@@ -12,8 +12,8 @@
                                             aria_label: ".form-select-lg example"},
                                label_html: { class: "mb-2" }, selected: 1,
                                collection: @categories,
-                               prompt: :translate
+                               prompt: :translate, label: "Категорія:"
 
         .d-grid.gap-2.d-md-flex.justify-content-md-center.mt-5
-          = f.button :submit, class: "btn-primary btn-lg form-btn-color form-br-color"
-          = f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary btn-lg main-color form-br-color cancel-btn"
+          = f.button :submit, "Створити", class: "btn-primary btn-lg form-btn-color form-br-color"
+          = f.button :button, "Скасувати", type: "reset", class: "btn-outline-secondary btn-lg main-color form-br-color cancel-btn"

@@ -1,8 +1,15 @@
 .m-3
-  = f.input :title, input_html: { class: "form-br-color" }, label_html: { class: "mb-2" }
+  = f.input :title, input_html: { class: "form-br-color" },
+                                  label_html: { class: "mb-2" },
+                                  label: "Заголовок"
 
 .m-3
-  = f.input :description, input_html: { class: "form-br-color", id: "exampleFormControlInput1"}, label_html: { class: "mb-2" }
+  = f.input :description, input_html: { class: "form-br-color",
+                                        id: "exampleFormControlInput1"},
+                          label_html: { class: "mb-2" }, label: "Опис"
 
 .m-3
-  = f.input :image, as: :file, input_html: { class: "text-center form-control-lg my-3", id: "formFileLg" }, label: false
+  = f.input :image, as: :file,
+                        input_html: { class: "text-center form-control-lg my-3",
+                                      id: "formFileLg" },
+                        label: false

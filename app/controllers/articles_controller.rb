@@ -46,7 +46,24 @@ class ArticlesController < ApplicationController
     flash[:notice] = 'Article succesfully deleted!'
     redirect_to category_articles_path(@article.category_id)
   end
-  
+
+  def download_images
+    zip_file = File.new("images.zip", 'w')
+
+    Zip::File.open(zip_file.path, Zip::File::CREATE) do |zip|
+      collection.each do |article|
+        zip.add("#{article.category_id}_#{article.title}_#{article.id}.png", "public#{article.image.url}")
+      end
+    end
+
+    zip_data = File.read(zip_file.path)
+    send_data(zip_data, type: 'application/zip', disposition: 'attachment', filename: "images.zip")
+    respond_to do |format|
+      format.zip
+      # articles_path
+    end
+  end
+
   private
 
     def article_params

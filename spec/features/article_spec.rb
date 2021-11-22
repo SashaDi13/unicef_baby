@@ -12,18 +12,4 @@ RSpec.describe 'Article', type: :feature do
     expect(find(:css, '.show-title')).to have_text("10 причин чому ваша дитина погано спить")
     sleep(5)
   end
-
-  # scenario 'create article if admin' do
-  #   visit new_admin_session_path
-  #   fill_in "Email", with: "exemple@dot.net"
-  #   fill_in "Password", with: "123456"
-  #   click_button 'Log in'
-  #   visit new_article_path
-  #   sleep(5)
-  #   fill_in "Title", with: "New Article"
-  #   fill_in "Description", with: "Creating a new Article"
-  #   click_on "Create Article"
-  #   expect(page).to have_content 'Article create succesfully!'
-  #   sleep(5)
-  # end
 end
