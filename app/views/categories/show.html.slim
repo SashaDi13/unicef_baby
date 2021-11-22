@@ -4,26 +4,30 @@
   p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
   .row
     .col-6
-      form.d-flex.align-items-center.input-group
-        = link_to class: "btn", id: "button-addon1" do
-          =image_tag "search_header.png"
-        = search_field_tag "Search", "", class: "input form-control form-control-lg search-input",
-                                    placeholder: "Пошук",
-                                    aria_describedby: "button-addon1"
+      form.d-flex.align-items-center.input-group.bg-white.form-control-lg.search-input
+        = button_tag class: "btn btn-outline-secondary border-0", id: "button-addon1" do
+          i.fas.fa-search.text
+        = search_field_tag "Search py-3", "", class: "input form-control border-0",
+                                    placeholder: "Пошук..",
+                                    aria_describedby: "button-addon1" do
+
+          i.fas.fa-search
 
     .col-2
-      select.form-select aria-label=("Будь-який вік") class="form-control form-select-lg search-input"
+      select.form-select aria-label=("Будь-який вік") class="form-control form-select-lg search-input select-age py-3"
+        i.fas.fa-caret-down
         option selected="selected"  Будь-який вік
-        option value="1"  One
-        option value="2"  Two
-        option value="3"  Three
+        option value="1"  0-3 місяці
+        option value="2"  3-6 місяців
+        option value="3"  6-12 місяців
 
     .col-4
-      select.form-select aria-label=("Тема") class="search-input form-control form-select-lg "
+      select.form-select aria-label=("Тема") class="search-input form-control form-select-lg select-age py-3"
+        i.fas.fa-caret-down
         option selected="selected"  Всі теми
-        option value="1"  One
-        option value="2"  Two
-        option value="3"  Three
+        option value="1"  Сон
+        option value="2"  Візит до лікаря
+        option value="3"  Купання
 
 
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
