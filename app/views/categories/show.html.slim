@@ -1,35 +1,46 @@
-.container
+.container.z-ind
   = link_to categories_path do
-    h2.header-second.mb-2 = @category.name
+    h2.header-second.mb-2
+      i.fas.fa-arrow-left.arrw-back
+      = @category.name
   p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
   .row
     .col-6
-      form.d-flex.align-items-center.input-group.bg-white.form-control-lg.search-input
-        = button_tag class: "btn btn-outline-secondary border-0", id: "button-addon1" do
-          i.fas.fa-search.text
-        = search_field_tag "Search", "", class: "input form-control border-0",
-                                    placeholder: "Пошук..",
-                                    aria_describedby: "button-addon1" do
+      = simple_form_for :search, url: category_path(@category), method: "GET", html: { class: 'form-inline' } do |f|
+        = f.input :title, input_html: {value: ""}
+        = f.submit "Search", class: "btn btn-primary"
 
-          i.fas.fa-search
-
-    .col-2
-      select.form-select aria-label=("Будь-який вік") class="form-control form-select-lg search-input select-age py-3"
-        i.fas.fa-caret-down
-        option selected="selected"  Будь-який вік
-        option value="1"  0-3 місяці
-        option value="2"  3-6 місяців
-        option value="3"  6-12 місяців
-
-    .col-4
-      select.form-select aria-label=("Тема") class="search-input form-control form-select-lg select-age py-3"
-        i.fas.fa-caret-down
-        option selected="selected"  Всі теми
-        option value="1"  Сон
-        option value="2"  Візит до лікаря
-        option value="3"  Купання
+      = simple_form_for :filter_by_age, url: category_path(@category), method: "GET", html: { class: 'form-inline' } do |f|
+        = f.input :age, collection: Article::AGE, selected: Article::AGE[0]
+        end
+        = f.submit "Filter", class: "btn btn-primary"
 
 
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
-    - @category.articles.each do |article|
+    - @articles.each do |article|
       = render partial: 'articles/article', locals: { article: article }
+
+
+
+  form.d-flex.align-items-center.input-group.bg-white.form-control-lg.search-input
+    = button_tag class: "btn btn-outline-secondary border-0", id: "button-addon1" do
+      i.fas.fa-search.text
+    = search_field_tag "Search", "", class: "input form-control border-0",
+                                placeholder: "Пошук..",
+                                aria_describedby: "button-addon1"
+
+  .col-2
+    select.form-select multiple="true" aria-label=("multiple select") class="form-control form-select-lg search-input select-age py-3"
+      i.fas.fa-caret-down
+      option selected="selected"  Будь-який вік
+      option value="1"  0-3 місяці
+      option value="2"  3-6 місяців
+      option value="3"  6-12 місяців
+
+  .col-4
+    select.form-select multiple="true" aria-label=("multiple select") class="search-input form-control form-select-lg select-age py-3"
+      i.fas.fa-caret-down
+      option selected="selected"  Всі теми
+      option value="1"  Сон
+      option value="2"  Візит до лікаря
+      option value="3"  Купання

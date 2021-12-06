@@ -124,17 +124,26 @@
 }
 
 .category {
+  color: $category-color;
+
+  background: rgba($category-color, 0.2);
+}
+
+.article-tag {
   padding: 2px 12px;
   font-weight: bold;
   font-size: 12px;
   line-height: 14px;
   letter-spacing: 0.4px;
 
-  color: $category-color;
-
-  background: rgba(#FFC20E, 0.2);
   border-radius: 20px;
 }
+
+.subject {
+  color: $subject-color;
+    background: rgba($subject-color, 0.2);
+}
+
 
 .cat-tag {
   font-weight: normal;
