@@ -3,7 +3,8 @@ class AdminMailer < ApplicationMailer
           from: 'notification@example.com'
 
   def article_create_email(article)
+    attachments.inline['brand.png'] = File.read('app/assets/images/brand.png')
     @article = article
-    mail(subject: 'Article was created')
+    make_bootstrap_mail(subject: 'Article was created')
   end
 end

@@ -1,6 +1,6 @@
-.col.advs
+.col.advs.z-ind
   .card.rounded-6.mb
-    = image_tag article.image.url, class: "card-img-top"
+    = image_tag article.image.url, class: "card-img-top" if article.image.url
     .card-body
       .pb-1.px-2
         span.cat-tag = article.category.name
@@ -10,13 +10,13 @@
         h5.card-title.about-header.art-header = article.title
       .row
         .col-7
-          = link_to category_article_path(article.category_id, article), class: "btn btn-more pb-3 btn-more" do
+          = link_to category_article_path(article.category, article), class: "btn btn-more pb-3 btn-more" do
             span
               | Читати більше &nbsp;&nbsp;
               i.fas.fa-arrow-right
         - if current_admin
           .col-5.text-end
-            = link_to edit_category_article_path(article.category_id, article), class: "btn main-color" do
+            = link_to edit_category_article_path(article.category, article), class: "btn main-color" do
               i.fas.fa-pen
-            = link_to category_article_path(article.category_id, article), class: "btn main-color", method: :delete do
+            = link_to category_article_path(article.category, article), class: "btn main-color", method: :delete do
               i.fas.fa-trash

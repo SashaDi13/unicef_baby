@@ -1,23 +1,18 @@
-doctype html
-html
-  head
-  meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+.container
+  h1.text-center.mb-5 WELCOME!!!
+  p.text-center.mb-5 You have successfully created article:
 
-  body
-    h1 Article Creating
-    p You have successfully created article:
-
-    p
-      i Category:
-      br
-      span = @article.category.name
-    p
-      i Title:
-      h2 = @article.title
-    p
-      i Description
-      p = @article.description
-
-
-
-    h3 Thank you, for your advise!
+  .advs.z-ind.w-25
+    .card.rounded-6.mb.text-center
+      = image_tag @article.image.url, class: "card-img-top" if @article.image.url
+      .card-body.text-center
+        .pb-1.px-2
+          span.cat-tag = @article.category.name
+          span.cat-tag &nbsp; &#183; &nbsp;
+          span.cat-tag = time_ago_in_words(@article.created_at)
+        .cart-header.py-2
+          h5.card-title.about-header.art-header = @article.title
+  .bg-3
+  .bg-4
+  .text-center
+    = link_to "ПЕРЕГЛЯНУТИ СТАТТЮ", category_article_url(@article.category, @article.id), class: "btn btn-primary btn-lg btn-all-art px-5 py-3 mt-5"

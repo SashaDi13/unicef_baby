@@ -1,9 +1,9 @@
-.container.mt-3
+.container.mt-3.z-ind
   .row.align-items-start
     .col-lg-9.col-12
       .row.align-items-start.justify-content-end
         .col-md-9.col-12.pb-3
-          = link_to category_articles_path(@article.category_id), class: "link-back" do
+          = link_to category_path(@article.category), class: "link-back" do
             span.show-title
               i.fas.fa-arrow-left.arrw-back
               = @article.title
@@ -37,7 +37,7 @@
                 = link_to edit_category_article_path, class: "btn main-color" do
                   i.fas.fa-pen
 
-                = link_to category_articles_path, class: "btn main-color", method: :delete do
+                = link_to category_article_path(@article.category, @article), class: "btn main-color", method: :delete do
                   i.fas.fa-trash
 
     .col-lg-3.col-12
@@ -45,4 +45,4 @@
       .row.fl-dir
         -3.times do |article|
           .col-lg-12.col-md-4.col-12
-            = render partial: 'articles/article', locals: { article: @articles.find(rand(1..@articles.last.id)) }
+            = render partial: 'articles/article', locals: { article: rand_article }
