@@ -22,3 +22,5 @@
         .form-actions.d-grid.gap-2.d-md-flex.justify-content-md-center.mt-5
           = f.button :submit, "Log in", class: "btn-primary btn-lg form-btn-color form-br-color"
           = f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary btn-lg main-color form-br-color cancel-btn"
+
+          = link_to 'Login with Google', admin_google_oauth2_omniauth_authorize_path, method: :post, class: "btn btn-primary btn-block w-75 mt-2"

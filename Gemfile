@@ -13,10 +13,11 @@ gem 'rails-controller-testing'
 gem 'webpacker', '~> 5.0'
 gem 'meta-tags'
 gem 'devise'
-
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 gem 'premailer-rails'
 gem 'bootstrap-email'
-
 gem 'rubyzip'
 gem 'sidekiq'
 gem 'turbolinks', '~> 5'

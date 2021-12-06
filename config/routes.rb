@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   # get '/categories/:name', to: 'categories#show'
   devise_for :admins, controllers: {
-    sessions: 'admins/sessions'
+    sessions: 'admins/sessions',
+    omniauth_callbacks: 'admins/omniauth_callbacks'
   }
 
   resources :articles, only: :index do
