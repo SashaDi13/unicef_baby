@@ -22,11 +22,12 @@
   .row
     .col-lg-9.col-12
       .card.rounded-6.bg-0
-        =image_tag @article.image.url, class: "card-img-top"
+        =image_tag @article.image.url, class: "card-img-top" if @article.image.url
         .card-body
-          p.text-descr.pb-2 = @article.description
+          p.text-descr.pb-2 = @article.description.html_safe
           p.share-header.pb-1 Теги
-          span.category = @article.category.name
+          span.subject.article-tag.me-2 = @article.subject
+          span.category.article-tag = @article.category.name
           p.share-header.mt-2.py-3 Поділитися
           .row
             .col-3
