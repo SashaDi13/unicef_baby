@@ -13,10 +13,9 @@ gem 'rails-controller-testing'
 gem 'webpacker', '~> 5.0'
 gem 'meta-tags'
 gem 'devise'
-
 gem 'premailer-rails'
 gem 'bootstrap-email'
-
+gem 'ckeditor'
 gem 'rubyzip'
 gem 'sidekiq'
 gem 'turbolinks', '~> 5'
