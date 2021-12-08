@@ -22,6 +22,8 @@ gem 'premailer-rails'
 gem 'bootstrap-email'
 gem 'nokogiri'
 
+gem 'ckeditor'
+
 gem 'rubyzip'
 gem 'sidekiq'
 gem 'turbolinks', '~> 5'
