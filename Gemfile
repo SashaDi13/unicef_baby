@@ -14,6 +14,9 @@ gem 'webpacker', '~> 5.0'
 gem 'meta-tags'
 
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 
 gem 'premailer-rails'
 gem 'bootstrap-email'
@@ -29,6 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'simple_form'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
   # gem 'factory_bot_rails'
