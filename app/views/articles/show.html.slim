@@ -26,6 +26,7 @@
         .card-body
           p.text-descr.pb-2 = @article.description.html_safe
           p.share-header.pb-1 Теги
+          span.subject.article-tag.me-2 = @article.subject
           span.category.article-tag = @article.category.name
           p.share-header.mt-2.py-3 Поділитися
           .row

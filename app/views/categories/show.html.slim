@@ -1,20 +1,31 @@
-.container.z-ind
+.container.z-ind data-controller="hello"
+  h1 data-hello-target="output"
   = link_to categories_path do
     h2.header-second.mb-2
       i.fas.fa-arrow-left.arrw-back
       = @category.name
   p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
-  .row
-    .col-6
-      = simple_form_for :search, url: category_path(@category), method: "GET", html: { class: 'form-inline' } do |f|
-        = f.input :title, input_html: {value: ""}
-        = f.submit "Search", class: "btn btn-primary"
+  div data-controller="search"
+    .row
+      .col-6
+        = simple_form_for :search, url: category_path(@category), method: "GET",  html: { class: 'form-inline', data: { action: "click->search#handleResults", target: "title.form" } } do |f|
+          = f.input :title, input_html: { value: "", data: { action: "input->search#title" }}
+          = f.input :age, collection: Article::AGE, selected: false, include_blank: true
+          = f.input :subject, collection: Article::SUBJECT, selected: false, include_blank: true
+          = f.submit "", class: "btn btn-primary"
 
-      = simple_form_for :filter_by_age, url: category_path(@category), method: "GET", html: { class: 'form-inline' } do |f|
-        = f.input :age, collection: Article::AGE, selected: Article::AGE[0]
-        end
-        = f.submit "Filter", class: "btn btn-primary"
+    .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5  data-title-target="results"
+      - @articles.each do |article|
+        = render partial: 'articles/article', locals: { article: article }
 
+
+
+  form.d-flex.align-items-center.input-group.bg-white.form-control-lg.search-input
+    = button_tag class: "btn btn-outline-secondary border-0", id: "button-addon1" do
+      i.fas.fa-search.text
+    = search_field_tag "Search", "", class: "input form-control border-0",
+                                placeholder: "Пошук..",
+                                aria_describedby: "button-addon1"
 
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
     - @articles.each do |article|
