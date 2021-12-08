@@ -71,7 +71,7 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :description, :image,
                                       :category_id,
-                                      :published_at)
+                                      :published_at, :age, :subject)
     end
 
     def collection

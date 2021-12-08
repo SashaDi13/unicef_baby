@@ -5,8 +5,20 @@ class Article < ApplicationRecord
   belongs_to :category
 
   scope :published,        ->{ where('published_at <= ?', Time.zone.now) }
+  # 
+  # scope :title,            ->(search) {where('LOWER(title) LIKE ?', "%#{search["title"].downcase}%")}
+  # scope :age,            ->(search) {where('age LIKE ?', "%#{search["age"]}%")}
+  # scope :subject,            ->(search) {where('subject LIKE ?', "%#{search["subject"]}%")}
 
   validates :title, :description, presence: true
+  validates :title, :description, :age, :subject, presence: true
+
+  AGE = ["Будь-який вік", "0-3 місяці", "3-6 місяців", "6-9 місяців",
+        "9-12 місяців", "12-18 місяців", "18-24 місяці", "2-3 роки", "3-4 роки",
+        "4-5 роки", "5-6 роки"]
+
+  SUBJECT = ["Всі теми", "Вакцинація", "Візит до лікаря", "Годування",
+            "Здоров'я", "Купання", "Підгузок", "Прогулянка", "Сон"]
 
   TITLE = ["Як виробити режим сну у дитини",
           "Чого очікувати у перші тижні з дитиною",

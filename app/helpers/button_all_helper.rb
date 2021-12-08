@@ -9,10 +9,8 @@ module ButtonAllHelper
 
   def form_link_back(article)
     if current_page? new_article_path
-      text =" Створити"
       link_to "Назад", articles_path, class: "btn-primary btn-lg form-btn-color form-br-color"
     else
-      text = "Оновити"
       link_to "Скасувати редагування", category_article_path(article.category), class: "btn-primary btn-lg form-btn-color form-br-color"
     end
   end

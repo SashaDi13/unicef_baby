@@ -6,7 +6,6 @@ FactoryBot.create(:category, :emergency)
 
 FactoryBot.create(:admin)
 
-
 Category.all.each do |category|
   FactoryBot.create_list(:article, 8, category: category)
 end
