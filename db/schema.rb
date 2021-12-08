@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 2021_12_03_194302) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
     t.bigint "category_id"
+    t.string "age"
+    t.string "subject"
     t.index ["category_id"], name: "index_articles_on_category_id"
   end
 
