@@ -1,15 +1,28 @@
-.m-3
-  = f.input :title, input_html: { class: "form-br-color" },
-                                  label_html: { class: "mb-2" },
-                                  label: "Заголовок"
+= simple_form_for @article, url: path do |f|
+  = f.error_notification
+  .m-3
+    = f.input :title, input_html: { class: "form-br-color" },
+                                    label_html: { class: "mb-2" },
+                                    label: "Заголовок"
 
-.m-3
-  = f.input :description, input_html: { class: "form-br-color",
-                                        id: "exampleFormControlInput1"},
-                          label_html: { class: "mb-2" }, label: "Опис"
+  .m-3
+    = f.input :description, input_html: { class: "form-br-color",
+                                          id: "exampleFormControlInput1"},
+                            label_html: { class: "mb-2" }, label: "Опис"
 
-.m-3
-  = f.input :image, as: :file,
-                        input_html: { class: "text-center form-control-lg my-3",
-                                      id: "formFileLg" },
-                        label: false
+  .m-3
+    = f.input :image, as: :file,
+                          input_html: { class: "text-center form-control-lg my-3",
+                                        id: "formFileLg" },
+                          label: false
+
+  .m-3
+    = f.input :category_id, input_html: { class: "form-br-color form-select form-select-lg mb-3",
+                                      aria_label: ".form-select-lg example"},
+                         label_html: { class: "mb-2" }, selected: 1,
+                         collection: @categories, label: "Категорія:"
+
+  .d-grid.gap-3.d-md-flex.justify-content-md-center
+    = f.button :submit, text_change, class: "btn-primary btn-lg form-btn-color form-br-color"
+    = f.button :button, "Скасувати", type: "reset", class: "btn-outline-secondary btn-lg main-color form-br-color cancel-btn"
+    = form_link_back(@article)

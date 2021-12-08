@@ -12,13 +12,19 @@ gem 'slim-rails'
 gem 'rails-controller-testing'
 gem 'webpacker', '~> 5.0'
 gem 'meta-tags'
-gem 'simplecov', require: false, group: :test
+
 gem 'devise'
+
+gem 'premailer-rails'
+gem 'bootstrap-email'
+gem 'nokogiri'
+
 gem 'rubyzip'
 gem 'sidekiq'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'simple_form'
 
@@ -40,6 +46,7 @@ group :test do
   gem 'shoulda-matchers', '~> 3.0', require: false
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'simplecov', require: false
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
