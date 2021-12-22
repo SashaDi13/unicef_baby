@@ -5,8 +5,8 @@ require "rails/all"
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 require 'dotenv'
-Dotenv.load('admin.env', 'admin2.env')
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
 
 module UnicefBaby
   class Application < Rails::Application
@@ -22,7 +22,5 @@ module UnicefBaby
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    config.autoload_paths += %w(#{config.root}/app/models/ckeditor)
   end
 end
