@@ -81,4 +81,8 @@ class ArticlesController < ApplicationController
     def resource
       collection.find(params[:id])
     end
+
+    def load_categories
+      @categories = Category.all
+    end
 end

@@ -5,10 +5,6 @@ class Article < ApplicationRecord
   belongs_to :category
 
   scope :published,        ->{ where('published_at <= ?', Time.zone.now) }
-  # 
-  # scope :title,            ->(search) {where('LOWER(title) LIKE ?', "%#{search["title"].downcase}%")}
-  # scope :age,            ->(search) {where('age LIKE ?', "%#{search["age"]}%")}
-  # scope :subject,            ->(search) {where('subject LIKE ?', "%#{search["subject"]}%")}
 
   validates :title, :description, presence: true
   validates :title, :description, :age, :subject, presence: true
@@ -43,6 +39,13 @@ class Article < ApplicationRecord
     організм і застереже від захворювань .
     Прогулянки починайте з двотижневого віку протягом 15-20 хвилин, поступово
     подовжуючи час прогулянок до 1,5-2 годин."
+
+  # belongs_to :author
+  belongs_to :category
+
+  scope :published,        ->{ where('published_at <= ?', Time.zone.now) }
+
+  validates :title, :description, presence: true
 
   def published?
     published_at.present? && published_at <= Time.zone.now

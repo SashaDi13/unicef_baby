@@ -9,7 +9,6 @@ gem 'aws-sdk-rails'
 gem "aws-sdk-s3", require: false
 
 gem 'pg'
-gem 'stimulus-rails'
 gem 'factory_bot_rails'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
