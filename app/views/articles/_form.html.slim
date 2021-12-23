@@ -35,6 +35,6 @@
                          collection: Article::SUBJECT, label: "Тема:"
 
   .d-grid.gap-3.d-md-flex.justify-content-md-center
-    = f.button :submit, text_change, class: "btn-primary btn-lg form-btn-color form-br-color"
+    = f.button :submit, article_form_action_text(@article), class: "btn-primary btn-lg form-btn-color form-br-color"
     = f.button :button, "Скасувати", type: "reset", class: "btn-outline-secondary btn-lg main-color form-br-color cancel-btn"
-    = form_link_back(@article)
+    = article_form_link_back(@article)
