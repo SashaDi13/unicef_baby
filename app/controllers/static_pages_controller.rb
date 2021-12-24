@@ -9,4 +9,9 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
+
+  private
+    def load_categories
+      @categories = Category.all
+    end
 end

@@ -2,7 +2,6 @@ require 'zip'
 
 class ArticlesController < ApplicationController
   before_action :authenticate_admin!, except: [:index, :show]
-  before_action :load_categories
 
   def index
     @articles = collection
@@ -80,9 +79,5 @@ class ArticlesController < ApplicationController
 
     def resource
       collection.find(params[:id])
-    end
-
-    def load_categories
-      @categories = Category.all
     end
 end
