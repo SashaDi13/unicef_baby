@@ -1,0 +1,27 @@
+= form_tag category_search_path(@category), method: "GET", class: "d-flex form-control-lg", remote: true do
+  .d-flex.align-items-center.input-group.bg-white.search-input.ps-0
+    = button_tag "", class: "btn btn-outline-secondary border-0 btn-p" do
+      i.fas.fa-search.text
+    = text_field_tag "search[title]", "", placeholder: "Пошук..", class: "bg-white border-0 active-none w-75"
+
+  .col-xl-2.col-md-3.me-inp
+    .bg-white.form-control-lg.search-input.mb-3
+      .btn-select.select-text.mb-0.pt-3.pb-3 Будь-який вік
+
+    .bg-white.form-control-lg.mdl.search-input.pt-3.pe-5.pb-0
+      - Article::AGE.each do |age|
+        .select-text
+          = check_box_tag "search[age][]", age, true, class: "me-2 main-color check-box"
+          = age
+        br
+
+  .col-xl-3.col-md-4.me-inp
+    .bg-white.form-control-lg.search-input.mb-3
+      .btn-select.select-text.mb-0.pt-3.pb-3 Всі теми
+
+    .bg-white.form-control-lg.search-input.pt-3.p-sbj.mdl
+      - Article::SUBJECT.each do |subject|
+        .select-text
+          = check_box_tag "search[subject][]", subject, true, class: "me-2 main-color check-box"
+          = subject
+        br
