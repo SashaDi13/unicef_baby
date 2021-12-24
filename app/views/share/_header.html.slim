@@ -1,8 +1,8 @@
 .bg-1
 .bg-2
-.nav.navbar.navbar-expand-lg.navbar-light
+.nav.navbar.navbar-expand-lg.navbar-light.z-ind
   .container.container-fluid.pt-3
-    = link_to class: "navbar-brand" do
+    = link_to root_path, class: "navbar-brand" do
       =image_tag "brand.png", class: "imgs nav-brand"
 
     = button_tag class: "navbar-toggler nav-btn", 'aria-controls': "navbarSupportedContent", 'aria-expanded': "false", 'aria-label': "Toggle navigation", 'data-bs-target': "#navbarSupportedContent", 'data-bs-toggle': "collapse" do

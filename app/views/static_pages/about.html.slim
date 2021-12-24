@@ -1,4 +1,4 @@
-.container.page
+.container.page.z-ind
   .row.mb-5.start-md
     .col-md-8.col-12
       h2.header-second.mb-3 Про нас
@@ -21,7 +21,7 @@
         p.about-header.text-about.opac Усі діти мають право виживати, процвітати та реалізовувати свій потенціал - на користь кращого світу.
         p.about-header.text-about.opac UNICEF
       p.text.text-about.opac.pt-5 Детальніше про ЮНІСЕФ читайте на офіційному сайті
-      = link_to "ПЕРЕЙТИ НА САЙТ ЮНІСЕФ","https://www.google.com.ua/", class: "btn btn-primary btn-lg btn-all-art px-5 py-3 mt-5"
+      = big_btn_static_pages
 
       h5.about-header.mt-5 Ми у соціальних мережах
       = render "share/social_net"
