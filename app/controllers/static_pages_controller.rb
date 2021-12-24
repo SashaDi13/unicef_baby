@@ -1,6 +1,4 @@
 class StaticPagesController < ApplicationController
-  before_action :load_categories, only: [:main]
-
   def main
   end
 
@@ -9,9 +7,4 @@ class StaticPagesController < ApplicationController
 
   def contact
   end
-
-  private
-    def load_categories
-      @categories = Category.all
-    end
 end

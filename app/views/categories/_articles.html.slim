@@ -2,8 +2,8 @@
   h2.header-second.mb-2 Рекомендовані статті
   p.text.text-about Виберіть категорію, щоб почати статті за темою
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
-    - @categories.each do |category|
+    - Category.all.each do |category|
       = render partial: 'articles/article',
-                    locals: { article: first_article(category) }
+                    locals: { article: category.articles.first }
   .text-center
     = big_btn_static_pages
