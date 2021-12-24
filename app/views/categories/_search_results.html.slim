@@ -1,0 +1,4 @@
+- @articles.each do |article|
+  /= article.title
+  .article data-search-target="article"
+    = render partial: 'articles/article', locals: { article: article }

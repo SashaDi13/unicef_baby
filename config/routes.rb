@@ -16,9 +16,14 @@ Rails.application.routes.draw do
     get 'download_images', on: :collection, defaults: { format: 'zip' }
   end
 
-  resources :articles, except: [:show, :update]
+  resources :articles, except: [:show, :update, :destroy]
 
   resources :categories, only: [:index, :show], path: 'advises' do
     resources :articles, only: [:show, :edit, :destroy, :update]
+
+  end
+  
+  resources :categories, only: :show, path: 'advises' do
+    get "search", to: "categories#search"
   end
 end

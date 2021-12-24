@@ -7,6 +7,17 @@ class CategoriesController < ApplicationController
 
   def show
     @category = resource
+    @articles = @category.articles
+  end
+
+  def search
+
+    @category = resource
+    @articles = @category.articles
+
+    @articles = @category.articles.search(params["search"]) if params["search"].present?
+    render partial: "categories/search_results"
+  end
 
     @articles = @category.articles
   end

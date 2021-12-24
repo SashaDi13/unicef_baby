@@ -1,0 +1,70 @@
+.check-box {
+  width: 16px;
+  height: 16px;
+
+  &:checked:active {
+    background-color: $menu-color !important;
+    border-color: $menu-color !important;
+  }
+}
+
+input[type=text]:active {
+  border: none;
+}
+
+.z-ind-3 {
+  position: relative;
+  z-index: 3;
+}
+
+.btn-p {
+  padding: 20px 15px 20px 20px;
+}
+
+.me-inp {
+  margin-right: 8px;
+  padding-right: 22px;
+}
+
+.select-text {
+  font-weight: normal;
+  font-size: 16px !important;
+  line-height: 19px;
+  letter-spacing: 0.005em;
+  color: $copy-text;
+}
+.mdl {
+  position: fixed;
+  z-index: 3;
+}
+
+.p-sbj {
+  padding-right: 150px;
+}
+
+.btn-select {
+  border: none;
+  background: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: '425px') {
+  .form-font-size {
+    font-size: 18.7px !important;
+  }
+}
+
+@media (max-width: '375px') {
+  .form-font-size {
+    font-size: 16.2px !important;
+  }
+}
+
+@media (max-width: '320px') {
+  .form-font-size {
+    font-size: 13px !important;
+  }
+}
