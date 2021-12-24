@@ -1,15 +1,21 @@
 class CategoriesController < ApplicationController
-  before_action :load_categories, only: [:index]
-
   def index
     @categories = collection
   end
 
   def show
     @category = resource
-
     @articles = @category.articles
   end
+
+  def search
+    @category = resource
+    @articles = @category.articles
+
+    @articles = @category.articles.search(params["search"]) if params["search"].present?
+    render partial: "categories/search_results"
+  end
+
   private
 
     def collection
@@ -17,6 +23,10 @@ class CategoriesController < ApplicationController
     end
 
     def resource
-      collection.find(params[:id])
+      if params[:category_id]
+        collection.find(params[:category_id])
+      else
+        collection.find(params[:id])
+      end
     end
 end
