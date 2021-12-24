@@ -4,6 +4,6 @@
   .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
     - @categories.each do |category|
       = render partial: 'articles/article',
-                    locals: { article: category.articles.first }
+                    locals: { article: first_article(category) }
   .text-center
     = big_btn_static_pages
