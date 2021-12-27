@@ -21,8 +21,4 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show], path: 'advises' do
     resources :articles, only: [:show, :edit, :destroy, :update]
   end
-
-  resources :categories, only: :show, path: 'advises' do
-    get "search", to: "categories#search"
-  end
 end

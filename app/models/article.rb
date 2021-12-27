@@ -1,11 +1,11 @@
 class Article < ApplicationRecord
   mount_uploader :image, ArticleUploader
 
-  AGE = ["Будь-який вік", "0-3 місяці", "3-6 місяців", "6-9 місяців",
+  AGE = ["0-3 місяці", "3-6 місяців", "6-9 місяців",
         "9-12 місяців", "12-18 місяців", "18-24 місяці", "2-3 роки", "3-4 роки",
         "4-5 роки", "5-6 роки"]
 
-  SUBJECT = ["Всі теми", "Вакцинація", "Візит до лікаря", "Годування",
+  SUBJECT = ["Вакцинація", "Візит до лікаря", "Годування",
             "Здоров'я", "Купання", "Підгузок", "Прогулянка", "Сон"]
 
   TITLE = ["Як виробити режим сну у дитини",
@@ -47,7 +47,7 @@ class Article < ApplicationRecord
     published_at.present? && published_at <= Time.zone.now
   end
 
-  def self.search(search)
-    self.title(search).age(search).subject(search)
-  end
+  # def self.search(search)
+  #   self.title(search).age(search).subject(search)
+  # end
 end

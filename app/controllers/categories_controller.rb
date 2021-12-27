@@ -6,14 +6,13 @@ class CategoriesController < ApplicationController
   def show
     @category = resource
     @articles = @category.articles
-  end
 
-  def search
-    @category = resource
-    @articles = @category.articles
-
-    @articles = @category.articles.search(params["search"]) if params["search"].present?
-    render partial: "categories/search_results"
+    if params["search"].present?
+      # @articles = @category.articles.search(params["search"])
+      @articles = @category.articles.title(params["search"]) if params["search"]["title"]
+      @articles = @category.articles.age(params["search"]) if params["search"]["age"]
+      @articles = @category.articles.subject(params["search"]) if params["search"]["subject"]
+    end
   end
 
   private
@@ -23,10 +22,6 @@ class CategoriesController < ApplicationController
     end
 
     def resource
-      if params[:category_id]
-        collection.find(params[:category_id])
-      else
-        collection.find(params[:id])
-      end
+      collection.find(params[:id])
     end
 end
