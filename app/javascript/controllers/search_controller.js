@@ -2,8 +2,8 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "results", "form", "age_list", "all_age_list", "subject_list", "all_subject_list", "age_count", "subject_count"]
-  static classes = [ "hidden", "checkbox-all" ]
+  static targets = [ "results", "form", "checkbox_age", "checkbox_subject", "age_list", "all_age_list", "subject_list", "all_subject_list", "age_count", "subject_count"]
+  static classes = [ "hidden", "checkbox" ]
 
   connect() {
     this.setCountAge()
@@ -19,11 +19,6 @@ export default class extends Controller {
       // Rails.fire(this.formTarget, 'submit')
       this.formTarget.requestSubmit()
     }, 2000)
-  }
-
-  handleResults() {
-    const [data, status, xhr] = event.detail
-    this.resultsTarget.innerHTML = xhr.response
   }
 
   toggleAgeList() {
@@ -58,6 +53,7 @@ export default class extends Controller {
 
   defaultAllAges() {
     if (this.selectedCheckboxesAge.length > 0) {
+      this.checkbox_ageTarget.classList.add(this.checkboxClass);
       this.selectedCheckboxeAllAge[0].checked = false;
     }
   }
@@ -101,6 +97,7 @@ export default class extends Controller {
 
   defaultAllSubjects() {
     if (this.selectedCheckboxesSubject.length > 0) {
+      this.checkbox_subjectTarget.classList.add(this.checkboxClass)
       this.selectedCheckboxeAllSubject[0].checked = false;
     }
   }

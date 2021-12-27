@@ -8,10 +8,9 @@ class CategoriesController < ApplicationController
     @articles = @category.articles
 
     if params["search"].present?
-      # @articles = @category.articles.search(params["search"])
-      @articles = @category.articles.title(params["search"]) if params["search"]["title"]
-      @articles = @category.articles.age(params["search"]) if params["search"]["age"]
-      @articles = @category.articles.subject(params["search"]) if params["search"]["subject"]
+      params["search"]["age"] = Article::AGE if params["search"]["age"].nil?
+      params["search"]["subject"] = Article::SUBJECT if params["search"]["subject"].nil?
+      @articles = @category.articles.search(params["search"])
     end
   end
 
@@ -22,10 +21,6 @@ class CategoriesController < ApplicationController
     end
 
     def resource
-      if params[:category_id]
-        collection.find(params[:category_id])
-      else
-        collection.find(params[:id])
-      end
+      collection.find(params[:id])
     end
 end
