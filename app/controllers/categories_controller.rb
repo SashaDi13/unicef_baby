@@ -22,6 +22,10 @@ class CategoriesController < ApplicationController
     end
 
     def resource
-      collection.find(params[:id])
+      if params[:category_id]
+        collection.find(params[:category_id])
+      else
+        collection.find(params[:id])
+      end
     end
 end
