@@ -35,6 +35,11 @@ $subject-color: #6A1E74;
   background-color: $menu-color;
 
   &:hover {
-    border-color: $hower-color !important;
+    border-color: $hover-color !important;
   }
+}
+
+.google-btn-hover:hover {
+  background-color: $menu-color !important;
+  border-color: $menu-color !important;
 }
