@@ -3,22 +3,31 @@ $copy-text: #2D2926;
 $downl-text: #FFFFFF;
 $text: #777779;
 $category-color: #FFC20E;
-$hower-color: #4CC5F3;
+$hover-color: #4CC5F3;
 $subject-color: #6A1E74;
 
 .main-color {
   color: $menu-color !important;
 
   &:hover {
-    color: $hower-color !important;
+    color: $hover-color !important;
   }
 }
+
+.main-btn-color {
+  color: $menu-color !important;
+
+  &:hover {
+    color: $downl-text !important;
+  }
+}
+
 
 .form-br-color {
   border-color: $menu-color !important;
 
   &:hover {
-    border-color: $hower-color !important;
+    border-color: $hover-color !important;
   }
 }
 
