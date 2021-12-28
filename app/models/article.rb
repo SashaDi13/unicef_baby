@@ -37,9 +37,9 @@ class Article < ApplicationRecord
 
   scope :published,        ->{ where('published_at <= ?', Time.zone.now) }
 
-  scope :title,            ->(search) {where('LOWER(title) LIKE ?', "%#{search["title"]}%")}
-  scope :age,              ->(search) {where(age: search["age"])}
-  scope :subject,          ->(search) {where(subject: search["subject"])}
+  scope :title,            ->(search) {where('LOWER(title) LIKE ?', "%#{search}%")}
+  scope :age,              ->(search) {where(age: search)}
+  scope :subject,          ->(search) {where(subject: search)}
 
   validates :title, :description, :age, :subject, presence: true
 
@@ -48,6 +48,18 @@ class Article < ApplicationRecord
   end
 
   def self.search(search)
-    self.title(search).age(search).subject(search)
+    if search
+      if !search["age"] && !search["subject"]
+        title(search["title"])
+      elsif !search["subject"]
+        title(search["title"]).age(search["age"])
+      elsif !search["age"]
+        title(search["title"]).subject(search["subject"])
+      else
+        title(search["title"]).age(search["age"]).subject(search["subject"])
+      end
+    else
+      all
+    end
   end
 end
