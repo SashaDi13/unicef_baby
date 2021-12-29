@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :category do
 
-    name { Category::NAMES[0] }
+    name { Faker::Company.name }
 
     trait :helth do
       name { Category::NAMES[3] }

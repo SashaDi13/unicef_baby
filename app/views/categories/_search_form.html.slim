@@ -3,7 +3,7 @@
     .d-flex.align-items-center.input-group.bg-white.search-input.ps-0
       = button_tag "", class: "btn btn-outline-secondary border-0 btn-p"  do
         i.fas.fa-search.text
-      = text_field_tag "search[title]", "#{check_title}", placeholder: "Пошук..", class: "bg-white border-0 active-none w-75", data: { action: "input->search#search" }
+      = text_field_tag "search[title]", "#{params[:search]["title"] if params[:search]}", placeholder: "Пошук..", class: "bg-white border-0 active-none w-75", data: { action: "input->search#search" }
 
   .col-xl-2.col-md-3.me-inp
     .bg-white.form-control-lg.search-input.mb-3 data-action="click->search#toggleAgeList submit->search#hideList"
@@ -19,7 +19,7 @@
       div data-search-target="age_list"
         - Article::AGE.each do |age|
           .select-text
-            = check_box_tag "search[age][]", age, check(age, :age), class: "me-2 main-color check-box", data: { action: "click->search#setCountAge click->search#search"}
+            = check_box_tag "search[age][]", age, check_filter_value?(age, :age), class: "me-2 main-color check-box", data: { action: "click->search#setCountAge click->search#search"}
             = age
           br
 
@@ -37,6 +37,6 @@
       div data-search-target="subject_list"
         - Article::SUBJECT.each do |subject|
           .select-text
-            = check_box_tag "search[subject][]", subject, check(subject, :subject), class: "me-2 main-color check-box", data: { action: "click->search#setCountSubject click->search#search"}
+            = check_box_tag "search[subject][]", subject, check_filter_value?(subject, :subject), class: "me-2 main-color check-box", data: { action: "click->search#setCountSubject click->search#search"}
             = subject
           br
