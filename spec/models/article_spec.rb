@@ -35,19 +35,19 @@ RSpec.describe Article, type: :model do
 
     context "valid params" do
       let!(:article_1) { create(:article, category_id: category.id, title: "Виховання дітей", age: "2 місяці", subject: "Вакцинація") }
-      let!(:article_2) { create(:article, category_id: category.id, title: "Купання", age: "3 місяці", subject: "Прогулянка") }
+      let!(:article_2) { create(:article, category_id: category.id, title: "Купання", age: "3 місяці", subject: "Сон") }
       let!(:article_3) { create(:article, category_id: category.id, title: "Виховання дітей", age: "3 місяці", subject: "Сон") }
 
       it "search by title" do
-        expect(category.articles.search(title: "хов")[0]).to eq(article_1)
+        expect(category.articles.search(title: "хов")).to eq([article_1, article_3])
       end
 
       it "search by age" do
-        expect(category.articles.search(age: "3 місяці")[0]).to eq(article_2)
+        expect(category.articles.search(age: "3 місяці")).to eq([article_2, article_3])
       end
 
       it "search by subject" do
-        expect(category.articles.search(subject: "Сон")[0]).to eq(article_3)
+        expect(category.articles.search(subject: "Сон")).to eq([article_2, article_3])
       end
     end
   end

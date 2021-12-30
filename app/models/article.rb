@@ -49,7 +49,8 @@ class Article < ApplicationRecord
 
   def self.search(search)
     if search
-      articles = self.title(search)
+      articles = self
+      articles = articles.title(search) if search[:title]
       articles = articles.age(search) if search[:age]
       articles = articles.subject(search) if search[:subject]
       articles
