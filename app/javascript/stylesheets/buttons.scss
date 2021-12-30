@@ -12,6 +12,14 @@
   text-align: left;
 }
 
+.google {
+  width: 15%;
+}
+
+.btn-google {
+  width: 50%;
+}
+
 .downl-main-text {
   font-weight: bold;
   font-size: 14px;
@@ -59,6 +67,12 @@
 //   }
 // }
 
+@media (max-width: '1440px') {
+  .btn-google {
+    width: 85%;
+  }
+}
+
 @media (max-width: '720px') {
   .downl-butt {
     margin: 5px 5px 15px 5px !important;
@@ -67,5 +81,11 @@
   .downl-btn {
     display: block !important;
     justify-content: center;
+  }
+}
+
+@media (max-width: '425px') {
+  .btn-google {
+    width: 100%;
   }
 }
