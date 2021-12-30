@@ -32,4 +32,26 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.filter_rails_from_backtrace!
+
+  config.include Devise::Test::ControllerHelpers, type: :controller
+
+  OmniAuth.config.test_mode = true
+
+  OmniAuth.config.on_failure = Proc.new { |env|
+    OmniAuth::FailureEndpoint.new(env).redirect_to_after_omniauth_failure_path_for
+  }
+
+  OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+      provider: "google_oauth2",
+      uid: "1076060026507",
+      info: {
+        login: "Test Admin",
+        email: "test_admin@gmail.com"
+      },
+      credentials: {
+        token: "token",
+        refresh_token: "refresh token"
+      }
+    }
+  )
 end
