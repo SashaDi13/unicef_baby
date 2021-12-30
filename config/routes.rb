@@ -12,6 +12,11 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'admins/omniauth_callbacks'
   }
 
+  devise_scope :admin do
+    get 'sign_in', to: 'devise/sessions#new'
+    delete 'sign_out', to: 'devise/sessions#destroy'
+  end
+
   resources :articles, only: :index do
     get 'download_images', on: :collection, defaults: { format: 'zip' }
   end
