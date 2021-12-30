@@ -1,40 +1,44 @@
-= simple_form_for @article, url: path do |f|
-  = f.error_notification
-  .m-3
-    = f.input :title, input_html: { class: "form-br-color" },
-                                    label_html: { class: "mb-2" },
-                                    label: "Заголовок"
+.container.z-ind
+  .row.justify-content-center.my-5
+    .col-xl-6.col-lg-6.col-md-8.col-12
+      h1 = article_title
+      = simple_form_for @article, url: path do |f|
+        = f.error_notification
+        .m-3
+          = f.input :title, input_html: { class: "w-100 form-br-color" },
+                                          label_html: { class: "mb-2" },
+                                          label: "Заголовок"
 
-  .m-3
-    = f.input :description, as: :ckeditor, input_html: { class: "form-control form-height form-br-color form-description",
-                            ckeditor: { language: 'usa', toolbar: 'Full' } },
-                            label_html: { class: "mb-2" }, label: "Опис"
+        .m-3
+          = f.input :description, as: :ckeditor, input_html: { id: "autoresizing", class: "fw-100 orm-control form-height form-br-color form-description",
+                                  ckeditor: { language: 'usa', toolbar: 'Full' } },
+                                  label_html: { class: "mb-2" }, label: "Опис"
 
-  .m-3
-    = f.input :image, as: :file,
-                          input_html: { class: "text-center form-control-lg my-3",
-                                        id: "formFileLg" },
-                          label: false
+        .m-3
+          = f.input :image, as: :file,
+                                input_html: { class: "text-center form-control-lg my-3 form-font-size",
+                                              id: "formFileLg" },
+                                label: false
 
-  .m-3
-    = f.input :category_id, input_html: { class: "form-br-color form-select form-select-lg mb-3",
-                                      aria_label: ".form-select-lg example"},
-                         label_html: { class: "mb-2" }, selected: 1,
-                         collection: @categories, label: "Категорія:"
+        .m-3
+          = f.input :category_id, input_html: { class: "w-100 form-br-color form-select form-select-lg mb-3",
+                                            aria_label: ".form-select-lg example"},
+                               label_html: { class: "mb-2" }, selected: Category::NAMES[0],
+                               collection: @categories, label: "Категорія:"
 
-  .m-3
-    = f.input :age, input_html: { class: "form-br-color form-select form-select-lg mb-3",
-                                      aria_label: ".form-select-lg example"},
-                         label_html: { class: "mb-2" }, selected:  Article::AGE[0],
-                         collection: Article::AGE, label: "Вік:"
+        .m-3
+          = f.input :age, input_html: { class: "w-100 form-br-color form-select form-select-lg mb-3",
+                                            aria_label: ".form-select-lg example"},
+                               label_html: { class: "mb-2" }, selected:  Article::AGE[0],
+                               collection: Article::AGE, label: "Вік:"
 
-  .m-3
-    = f.input :subject, input_html: { class: "form-br-color form-select form-select-lg mb-3",
-                                      aria_label: ".form-select-lg example"},
-                         label_html: { class: "mb-2" }, selected: Article::SUBJECT[0],
-                         collection: Article::SUBJECT, label: "Тема:"
+        .m-3
+          = f.input :subject, input_html: { class: "w-100 form-br-color form-select form-select-lg mb-3",
+                                            aria_label: ".form-select-lg example"},
+                               label_html: { class: "mb-2" }, selected: Article::SUBJECT[0],
+                               collection: Article::SUBJECT, label: "Тема:"
 
-  .d-grid.gap-3.d-md-flex.justify-content-md-center
-    = f.button :submit, article_form_action_text(@article), class: "btn-primary btn-lg form-btn-color form-br-color"
-    = f.button :button, "Скасувати", type: "reset", class: "btn-outline-secondary btn-lg main-color form-br-color cancel-btn"
-    = article_form_link_back(@article)
+        .d-grid.gap-3.d-md-flex.justify-content-md-center.mt-5
+          = f.button :submit, article_form_action_text(@article), class: "btn-primary btn-lg form-btn-color form-br-color"
+          = f.button :button, "Скасувати", type: "reset", class: "btn-outline-secondary btn-lg main-btn-color form-br-color cancel-btn"
+          = article_form_link_back(@article)
