@@ -1,15 +1,13 @@
 class CategoriesController < ApplicationController
-  before_action :load_categories, only: [:index]
-
   def index
     @categories = collection
   end
 
   def show
     @category = resource
-
-    @articles = @category.articles
+    @articles = @category.articles.search(params[:search])
   end
+
   private
 
     def collection

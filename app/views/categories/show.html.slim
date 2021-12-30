@@ -1,30 +1,11 @@
-.container.z-ind
+.container.z-ind data-controller="search" data-search-hidden-class="hidden" data-search-checkbox-class="checkbox"
   = link_to categories_path do
     h2.header-second.mb-2
       i.fas.fa-arrow-left.arrw-back
       = @category.name
   p.text.text-about Виберіть вік дитина і тему, або скористайтеся пошуком, щоб починати статті за темою
   .row
-    .col-6
-      = simple_form_for :search, url: category_path(@category), method: "GET",  html: { class: 'form-inline' } do |f|
-        = f.input :title, input_html: { value: "" }
-        = f.input :age, collection: Article::AGE, selected: false, include_blank: true
-        = f.input :subject, collection: Article::SUBJECT, selected: false, include_blank: true
-        = f.submit "", class: "btn btn-primary"
+    = render "categories/search_form"
 
-    .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
-      - @articles.each do |article|
-        = render partial: 'articles/article', locals: { article: article }
-
-
-
-  form.d-flex.align-items-center.input-group.bg-white.form-control-lg.search-input
-    = button_tag class: "btn btn-outline-secondary border-0", id: "button-addon1" do
-      i.fas.fa-search.text
-    = search_field_tag "Search", "", class: "input form-control border-0",
-                                placeholder: "Пошук..",
-                                aria_describedby: "button-addon1"
-
-  .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5
-    - @articles.each do |article|
-      = render partial: 'articles/article', locals: { article: article }
+    .row.row-cols-lg-4.row-cols-md-2.row-cols-1.mt-5  data-search-target="results" data-action="mouseover->search#hideAgeList mouseover->search#hideSubjectList"
+      = render "categories/search_results"

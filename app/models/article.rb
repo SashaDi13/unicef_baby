@@ -1,19 +1,11 @@
 class Article < ApplicationRecord
   mount_uploader :image, ArticleUploader
 
-  # belongs_to :author
-  belongs_to :category
-
-  scope :published,        ->{ where('published_at <= ?', Time.zone.now) }
-
-  validates :title, :description, presence: true
-  validates :title, :description, :age, :subject, presence: true
-
-  AGE = ["Будь-який вік", "0-3 місяці", "3-6 місяців", "6-9 місяців",
+  AGE = ["0-3 місяці", "3-6 місяців", "6-9 місяців",
         "9-12 місяців", "12-18 місяців", "18-24 місяці", "2-3 роки", "3-4 роки",
         "4-5 роки", "5-6 роки"]
 
-  SUBJECT = ["Всі теми", "Вакцинація", "Візит до лікаря", "Годування",
+  SUBJECT = ["Вакцинація", "Візит до лікаря", "Годування",
             "Здоров'я", "Купання", "Підгузок", "Прогулянка", "Сон"]
 
   TITLE = ["Як виробити режим сну у дитини",
@@ -45,9 +37,25 @@ class Article < ApplicationRecord
 
   scope :published,        ->{ where('published_at <= ?', Time.zone.now) }
 
-  validates :title, :description, presence: true
+  scope :title,            ->(search) {where('LOWER(title) LIKE ?', "%#{search[:title]}%")}
+  scope :age,            ->(search) {where(age: search[:age])}
+  scope :subject,            ->(search) {where(subject: search[:subject])}
+
+  validates :title, :description, :age, :subject, presence: true
 
   def published?
     published_at.present? && published_at <= Time.zone.now
+  end
+
+  def self.search(search)
+    if search
+      articles = self
+      articles = articles.title(search) if search[:title]
+      articles = articles.age(search) if search[:age]
+      articles = articles.subject(search) if search[:subject]
+      articles
+    else
+      all
+    end
   end
 end
