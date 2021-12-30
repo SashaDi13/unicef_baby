@@ -39,7 +39,7 @@ RSpec.describe Article, type: :model do
       let!(:article_3) { create(:article, category_id: category.id, title: "Виховання дітей", age: "3 місяці", subject: "Сон") }
 
       it "search by title" do
-        expect(category.articles.search(search: { title: "хов" })[0]).to eq(article_1)
+        expect(category.articles.search(title: "хов")[0]).to eq(article_1)
       end
 
       it "search by age" do

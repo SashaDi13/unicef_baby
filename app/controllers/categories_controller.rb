@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = resource
-    @articles = @category.articles.search(params["search"])
+    @articles = @category.articles.search(params[:search])
   end
 
   private
