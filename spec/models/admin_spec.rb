@@ -24,7 +24,7 @@ RSpec.describe Admin, type: :model do
 
     context "new admin" do
       let(:auth) { OmniAuth::AuthHash.new(
-        provider: "google_oauth2",
+        provider: "google",
         uid: "1076060026507",
         info: {
           login: "Test Admin",

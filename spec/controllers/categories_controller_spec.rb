@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
-  let(:article) { create(:article, category_id: 1,
+  let(:category) { create(:category) }
+  let(:article) { create(:article, category_id: category.id,
                                    published_at: Time.zone.now - 10.minutes) }
   describe "#index" do
     it "renders the index template" do
@@ -17,5 +18,9 @@ RSpec.describe CategoriesController, type: :controller do
       expect(response).to render_template("categories/show")
       expect(response.body).to eq ""
     end
+  end
+
+  describe "#search" do
+
   end
 end

@@ -3,7 +3,7 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:google_oauth2]
+         :omniauthable, omniauth_providers: [:google]
   validates :login, presence: true
   attr_accessor :skip_password_validation
 
@@ -12,10 +12,11 @@ class Admin < ApplicationRecord
     google_admin = Admin.where(email: data['email']).first
 
     unless google_admin
-        google_admin = Admin.create(login: data['name'],
-           email: data['email'],
-           password: Devise.friendly_token[0,20]
-        )
+      google_admin = Admin.create(
+        login: data['name'],
+        email: data['email'],
+        password: Devise.friendly_token[0,20]
+    )
     end
     google_admin
   end
