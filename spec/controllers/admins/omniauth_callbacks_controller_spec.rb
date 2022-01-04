@@ -14,10 +14,12 @@ RSpec.describe Admins::OmniauthCallbacksController, type: :controller do
         }
       )}
 
+      let(:data_from_google) { Admin.from_omniauth(auth) }
+
       it 'return Admin with google' do
-        expect(Admin.from_omniauth(auth)).to be_persisted
-        expect(Admin.from_omniauth(auth).provider).to eq('google')
-        expect(Admin.from_omniauth(auth).uid).to eq("1076060026507")
+        expect(data_from_google).to be_persisted
+        expect(data_from_google.provider).to eq('google')
+        expect(data_from_google.uid).to eq("1076060026507")
       end
     end
   end
