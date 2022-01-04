@@ -1,9 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe ArticlesController, type: :controller do
-
-  let(:category) { 1 }
-  let(:article) { create(:article, category_id: category,
+  let(:category) { create(:category) }
+  let(:article) { create(:article, category_id: category.id,
                                    published_at: Time.zone.now - 10.minutes) }
   describe "GET #index" do
     it "renders the index template" do
@@ -22,8 +21,8 @@ RSpec.describe ArticlesController, type: :controller do
   context "if admin" do
     login_admin
     let(:article_params) { attributes_for(:article) }
+
     describe "GET #new" do
-      # let(:article_params) { { title: "dDDDd", description: "ffffdddddddddddddddddddddd", category_id: category, published_at: Time.zone.now } }
       it "returns http success if signed in as admin" do
         get :new
         expect(response).to render_template("articles/new")
@@ -37,37 +36,38 @@ RSpec.describe ArticlesController, type: :controller do
       end
     end
 
-    describe "POST #create" do
+    context "valid params" do
+      before { article_params[:title] = "Unko-chan" }
 
-      it 'creates article with valid params' do
-        article_params[:category_id] = category
-        post :create, params: { article: article_params }
-
-        expect(response).to redirect_to(category_article_path(Article.last.category_id, Article.last.id))
+      describe "POST #create" do
+        it 'creates article with valid params' do
+          post :create, params: { article: article_params }
+          expect(response).to be_successful
+        end
       end
 
-      it 'does not create article with invalid params' do
-        article_params[:title] = nil
-        post :create, params: { article: article_params }
-
-        expect(response).to render_template("articles/new")
+      describe "PATCH #update" do
+        it "returns http success if signed in as admin" do
+          patch :update, params: { id: article.id, category_id: article.category_id, article: article_params }
+          expect(article.reload.title).to  eq("Unko-chan")
+        end
       end
     end
 
-    describe "PATCH #update" do
-      it "returns http success if signed in as admin" do
-        article_params[:title] =  "Unko-chan"
-
-        patch :update, params: { id: article.id, category_id: article.category_id, article: article_params }
-
-        expect(article.reload.title).to  eq ("Unko-chan")
+    context "invalid params" do
+      before { article_params[:title] = nil }
+      describe "POST #create" do
+        it 'does not create article with invalid params' do
+          post :create, params: { article: article_params }
+          expect(response).to render_template("articles/new")
+        end
       end
 
-      it 'does not create unit with invalid params' do
-        article_params[:title] = nil
-        patch :update, params: { id: article.id, category_id: article.category_id, article: article_params }
-
-        expect(response).to render_template("articles/edit")
+      describe "PATCH #update" do
+        it 'does not create unit with invalid params' do
+          patch :update, params: { id: article.id, category_id: article.category_id, article: article_params }
+          expect(response).to render_template("articles/edit")
+        end
       end
     end
 
@@ -79,11 +79,11 @@ RSpec.describe ArticlesController, type: :controller do
     end
 
     describe "#download_images" do
-      let(:article) { create(:article, category_id: category, title: "New Article",
+      let(:article) { create(:article, category_id: category.id, title: "New Article",
                                        published_at: Time.zone.now - 10.minutes, image: "1.png") }
       it "should export zip file with all articles images" do
         get :download_images, format: :zip
-        expect(response.headers['Content-Type']).to have_content "application/zip"
+        expect(response.headers['Content-Type']).to have_content("application/zip")
       end
     end
   end

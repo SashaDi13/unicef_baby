@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Admins::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  def google_oauth2
+  def google
     @admin = Admin.from_omniauth(request.env["omniauth.auth"])
 
     if @admin.persisted?
