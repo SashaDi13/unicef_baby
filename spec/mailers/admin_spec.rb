@@ -3,9 +3,8 @@ require "rails_helper"
 RSpec.describe AdminMailer, type: :mailer do
   describe 'article_create_email' do
     let(:mail) { AdminMailer.article_create_email(article) }
-    # let(:admin) { "exemple@dot.net" }
-    let(:category) { 1 }
-    let(:article) { create(:article, category_id: category,
+    let(:category) { create(:category) }
+    let(:article) { create(:article, category_id: category.id,
                                      published_at: Time.zone.now - 10.minutes) }
 
     it 'renders the subject' do
@@ -21,7 +20,7 @@ RSpec.describe AdminMailer, type: :mailer do
     end
 
     it 'assigns @article' do
-      expect(mail.body.encoded).to match(article.title)
+      expect(mail.body.encoded).to have_content(article.title)
     end
   end
 end

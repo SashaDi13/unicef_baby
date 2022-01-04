@@ -83,10 +83,7 @@ RSpec.describe ArticlesController, type: :controller do
                                        published_at: Time.zone.now - 10.minutes, image: "1.png") }
       it "should export zip file with all articles images" do
         get :download_images, format: :zip
-        let(:mock_file) { Zip::File.open("images.zip") }
-        expect(response.headers['Content-Type']).to have_content "application/zip"
-        allow(Zip::File).to receive(:open) { |&block| block.call(mock_file) }
-        "#{article.category_id}_#{article.title}_#{article.id}.png"
+        expect(response.headers['Content-Type']).to have_content("application/zip")
       end
     end
   end
