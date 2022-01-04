@@ -42,7 +42,7 @@ RSpec.describe ArticlesController, type: :controller do
       describe "POST #create" do
         it 'creates article with valid params' do
           post :create, params: { article: article_params }
-          expect(response).to redirect_to(category_article_path(Article.last.category_id, Article.last.id))
+          expect(response).to be_successful
         end
       end
 

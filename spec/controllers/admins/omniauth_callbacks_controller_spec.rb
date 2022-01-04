@@ -3,14 +3,14 @@ require 'rails_helper'
 RSpec.describe Admins::OmniauthCallbacksController, type: :controller do
   describe "allows logged in admins" do
     context 'if admin' do
-      let!(:google_admin) { create(:admin, provider: 'google',
+      let!(:admin) { create(:admin, provider: 'google',
         uid: "1076060026507") }
       let(:auth) { OmniAuth::AuthHash.new(
-        provider: google_admin.provider,
-        uid: google_admin.uid,
+        provider: admin.provider,
+        uid: admin.uid,
         info: {
-          email: google_admin.email,
-          login: google_admin.login
+          email: admin.email,
+          login: admin.login
         }
       )}
 

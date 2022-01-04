@@ -8,17 +8,11 @@ class Admin < ApplicationRecord
   attr_accessor :skip_password_validation
 
   def self.from_omniauth(auth)
-    data = auth.info
-    google_admin = Admin.where(email: data['email']).first
-
-    unless google_admin
-      google_admin = Admin.create(
-        login: data['name'],
-        email: data['email'],
-        password: Devise.friendly_token[0,20]
-    )
+    Admin.where(email: auth.info['email']).first_or_create do |admin|
+      admin.login = auth.info['name'],
+      admin.email = auth.info['email'],
+      admin.password = Devise.friendly_token[0,20]
     end
-    google_admin
   end
 
   private
