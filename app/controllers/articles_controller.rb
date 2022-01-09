@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
     if @article.save
       flash[:notice] = 'Article create succesfully!'
       SendNotifAboutNewArticleJob.perform_now(@article)
-      NOTIFIER.ping "Нова стаття була створена.<a href='#{category_article_url(@article.category, @article.id)}'> Перегляньте її</a>"
+      SendSlackNotificationJob.perform_now("Нова стаття була створена.<a href='#{category_article_url(@article.category, @article.id)}'> Перегляньте її</a>")
       redirect_to category_article_path(@article.category, @article.id)
     else
       flash.now[:warning] = 'Wrong input data. Article wasn`t created'
