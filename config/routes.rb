@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   mount Ckeditor::Engine => '/ckeditor'
 
   root to: 'static_pages#main'
@@ -25,9 +27,5 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show], path: 'advises' do
     resources :articles, only: [:show, :edit, :destroy, :update]
-  end
-
-  resources :categories, only: :show, path: 'advises' do
-    get "search", to: "categories#search"
   end
 end

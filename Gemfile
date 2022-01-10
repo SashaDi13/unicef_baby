@@ -19,6 +19,9 @@ gem 'rails-controller-testing'
 gem 'webpacker', '~> 5.0'
 gem 'meta-tags'
 
+gem 'rswag-api'
+gem 'rswag-ui'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
@@ -46,6 +49,7 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails'
+  gem 'rswag-specs'
   # gem 'factory_bot_rails'
 end
 
