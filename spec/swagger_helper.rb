@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+# require 'rspec/rails/swagger'
 require 'rails_helper'
 
 RSpec.configure do |config|
@@ -16,22 +16,31 @@ RSpec.configure do |config|
   # the root example_group in your specs, e.g. describe '...', swagger_doc: 'v2/swagger.json'
   config.swagger_docs = {
     'v1/swagger.yaml' => {
-      openapi: '3.0.1',
+      swagger: '2.0',
       info: {
         title: 'API V1',
         version: 'v1'
       },
-      paths: {},
-      servers: [
-        {
-          url: 'https://{defaultHost}',
-          variables: {
-            defaultHost: {
-              default: 'www.example.com'
+      definitions: {
+        createArticle: {
+          type: :object,
+          properties: {
+            data: {
+              type: :object,
+              required: %i[title, description, category_id, published_at, image, age, subject],
+              properties: {
+                title: { type: :string, example: 'title' },
+                description: { type: :string, example: 'this about article' },
+                category_id: { type: :bigint, example: '1' },
+                published_at: { type: :datetime, example: 'Wed, 05 Jan 2022 13:13:08.710789000 UTC +00:00' },
+                image: { type: :string, example: '/uploads/article/image/23/4.png' },
+                age: { type: :string, example: '0-3 mounth' },
+                subject: { type: :string, example: 'dream' }
+              }
             }
           }
         }
-      ]
+      }
     }
   }
 

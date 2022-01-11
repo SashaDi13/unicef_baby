@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   mount Rswag::Api::Engine => '/api-docs'
   mount Ckeditor::Engine => '/ckeditor'
 
+  namespace :api do
+    namespace :v1 do
+      resources :categories, only: :show
+    end
+  end
+
   root to: 'static_pages#main'
   get 'about', to: 'static_pages#about'
   # get 'advises', to: 'static_pages#advises'

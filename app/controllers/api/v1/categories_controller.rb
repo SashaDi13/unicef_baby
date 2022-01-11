@@ -3,7 +3,7 @@ class Api::V1::CategoriesController < Api::V1::ApiController
     @category = resource
     @articles = @category.articles.search(params[:search])
 
-    render json: { articles: @articles }
+    render json: { category: @category, articles: @articles }
   end
 
   private
