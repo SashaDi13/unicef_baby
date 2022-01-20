@@ -39,6 +39,8 @@ gem 'carrierwave-aws'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem "slack-notifier"
+
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'simple_form'
 
