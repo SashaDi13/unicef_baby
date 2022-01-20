@@ -24,8 +24,10 @@ class ArticlesController < ApplicationController
     @article = collection.build(article_params.merge(published_at: Time.zone.now))
     if @article.save
       flash[:notice] = 'Article create succesfully!'
-      SendNotifAboutNewArticleJob.perform_now(@article)
+
+      SendNotifAboutNewArticleJob.perform_now(@article.id)
       SendSlackNotificationJob.perform_now(@article.id)
+      
       redirect_to category_article_path(@article.category, @article.id)
     else
       flash.now[:warning] = 'Wrong input data. Article wasn`t created'

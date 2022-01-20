@@ -1,12 +1,12 @@
 class SendSlackNotificationJob < ApplicationJob
   queue_as :default
-  include Rails.application.routes.url_helpers
 
-  def perform(article)
+  def perform(article_id)
     notifier = Slack::Notifier.new ENV['WEBHOOK_URL'], username: ENV['NAME'],
                                                        channel: ENV['CHANNEL'],
                                                        icon_emoji: ":page_facing_up:"
-    @article = Article.find_by(id: article)
-    notifier.ping "Нова стаття була створена. <a href='#{category_article_url(@article.category, article)}'> Перегляньте її</a>"
+    @article = Article.find(article_id)
+
+    notifier.ping "Нова стаття була створена. <a href='http://127.0.0.1:3000/advises/#{@article.category_id}/articles/#{article_id}'> Перегляньте її</a>"
   end
 end

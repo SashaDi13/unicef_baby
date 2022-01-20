@@ -33,5 +33,3 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
 end
-
-RSpec::Mocks.configuration.allow_message_expectations_on_nil = true
