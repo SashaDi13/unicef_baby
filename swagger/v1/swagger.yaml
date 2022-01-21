@@ -39,3 +39,38 @@ definitions:
           subject:
             type: string
             example: dream
+paths:
+  "/api/v1/categories/{id}":
+    get:
+      summary: Lists category articles
+      tags:
+      - category
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - name: id
+        in: path
+        type: integer
+        required: true
+      responses:
+        '200':
+          description: lists articles
+          schema:
+            type: object
+            properties:
+              activities:
+                type: array
+                items:
+                  properties:
+                    title:
+                      type: string
+                    published_at:
+                      type: datetime
+                    image:
+                      type: string
+                  required:
+                  - title,
+                  - published_at,
+                  - image
