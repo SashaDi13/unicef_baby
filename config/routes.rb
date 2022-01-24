@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   mount Ckeditor::Engine => '/ckeditor'
+
+  namespace :api do
+    namespace :v1 do
+      resources :categories, only: :show
+    end
+  end
 
   root to: 'static_pages#main'
   get 'about', to: 'static_pages#about'
@@ -25,9 +33,5 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:index, :show], path: 'advises' do
     resources :articles, only: [:show, :edit, :destroy, :update]
-  end
-
-  resources :categories, only: :show, path: 'advises' do
-    get "search", to: "categories#search"
   end
 end
