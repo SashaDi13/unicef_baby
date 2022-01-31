@@ -15,13 +15,10 @@
                                   label_html: { class: "mb-2" }, label: "Опис"
 
         .m-3.justify-content-center
-          - if @document.file.thumb.thumbable?(@document.file)
-            = image_tag @document.file.thumb.url if @document.file.url
           = f.input :file, as: :file,
                                 input_html: { class: "text-center form-control-lg my-3 form-font-size",
                                               id: "formFileLg"},
-                                label: false }
-
+                                label: false
 
         .d-grid.gap-3.d-md-flex.justify-content-md-center.mt-5
           = f.button :submit, "Створити", class: "btn-primary btn-lg form-btn-color form-br-color"
