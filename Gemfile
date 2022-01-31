@@ -41,6 +41,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'carrierwave-aws'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'rmagick'
 
 gem "slack-notifier"
 

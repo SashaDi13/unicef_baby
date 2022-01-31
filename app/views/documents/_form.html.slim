@@ -1,0 +1,28 @@
+.container.z-ind
+  .row.justify-content-center.my-5
+    .col-xl-6.col-lg-6.col-md-8.col-12
+      h1 Створити документ
+      = simple_form_for @document do |f|
+        = f.error_notification
+        .m-3
+          = f.input :title, input_html: { class: "w-100 form-br-color" },
+                                          label_html: { class: "mb-2" },
+                                          label: "Заголовок"
+
+        .m-3
+          = f.input :description, as: :ckeditor, input_html: { id: "autoresizing", class: "fw-100 orm-control form-height form-br-color form-description",
+                                  ckeditor: { language: 'usa', toolbar: 'Full' } },
+                                  label_html: { class: "mb-2" }, label: "Опис"
+
+        .m-3.justify-content-center
+          - if @document.file.thumb.thumbable?(@document.file)
+            = image_tag @document.file.thumb.url if @document.file.url
+          = f.input :file, as: :file,
+                                input_html: { class: "text-center form-control-lg my-3 form-font-size",
+                                              id: "formFileLg"},
+                                label: false }
+
+
+        .d-grid.gap-3.d-md-flex.justify-content-md-center.mt-5
+          = f.button :submit, "Створити", class: "btn-primary btn-lg form-btn-color form-br-color"
+          = f.button :button, "Скасувати", type: "reset", class: "btn-outline-secondary btn-lg main-btn-color form-br-color cancel-btn"

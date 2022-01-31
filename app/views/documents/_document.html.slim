@@ -1,0 +1,13 @@
+.col.advs.z-ind
+  .card.rounded-6.mb
+    = link_to document_path(document), class: "link-back" do
+      .pt-3.text-center
+        - if document.file.thumb.thumbable?(document.file)
+          = image_tag document.file.thumb.url, class: "bg-white py"
+
+        - else
+          = image_tag "default_image.png", class: 'default_image'
+
+        .cart-header.py-2
+          h5.card-title.about-header.art-header.doc-title.mt-3 = document.title
+          .card-text.text.text-about = document.description.html_safe
