@@ -11,9 +11,9 @@ class DocumentsController < ApplicationController
 
   def create
     @document = collection.build(document_params)
+    @document.file_preview = @document.preview
     if @document.save
       flash[:notice] = 'document create succesfully!'
-
       redirect_to documents_path
     else
       flash.now[:warning] = 'Wrong input data. document wasn`t created'
@@ -24,7 +24,7 @@ class DocumentsController < ApplicationController
   private
 
     def document_params
-      params.require(:document).permit(:title, :description, :file)
+      params.require(:document).permit(:title, :description, :file, :file_preview)
     end
 
     def collection

@@ -1,8 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe DocumentsController, type: :controller do
-  let(:document) { create(:document) }
+  let!(:document) { create(:document, title: "Article") }
   describe "GET #index" do
+    let!(:document) { create(:document, title: "Article") }
     it "renders the index template" do
       get :index
       expect(response).to render_template("documents/index")
