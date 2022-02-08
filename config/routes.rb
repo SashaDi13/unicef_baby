@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :articles, except: [:show, :update]
+  resources :documents
 
   resources :categories, only: [:index, :show], path: 'advises' do
     resources :articles, only: [:show, :edit, :destroy, :update]
