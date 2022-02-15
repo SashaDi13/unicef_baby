@@ -15,7 +15,7 @@ module UnicefBaby
 
     config.active_job.queue_adapter = :sidekiq
 
-    # Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['ELASTICSEARCH_URL'] || "localhost:9200"
+    Elasticsearch::Model.client = Elasticsearch::Client.new host: ENV['ELASTICSEARCH_URL'] || "localhost:9200"
 
     # Configuration for the application, engines, and railties goes here.
     #

@@ -13,4 +13,10 @@ RSpec.configure do |config|
   end
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
+
+  config.before(:each, elasticsearch: true) do
+    [Article, Document].each do |model|
+      model.__elasticsearch__.create_index!(force: true)
+    end
+  end
 end
