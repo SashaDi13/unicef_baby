@@ -1,4 +1,7 @@
 class Document < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   mount_uploader :file, DocumentUploader
   mount_uploader :file_preview, DocumentUploader
   validates :title, presence: true
@@ -10,6 +13,8 @@ class Document < ApplicationRecord
   def preview
     convert_to_image if thumbable?
   end
+
+  index_name [Rails.env, model_name.collection.gsub(/\//, '-')].join('_')
 
   private
 

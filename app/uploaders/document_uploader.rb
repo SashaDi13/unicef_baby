@@ -21,7 +21,11 @@ class DocumentUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fit: [400,800]
+    process resize_to_fit: [400, 800]
+  end
+
+  version :small_thumb do
+    process resize_to_fill: [200, 200]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

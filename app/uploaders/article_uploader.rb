@@ -1,7 +1,6 @@
 class ArticleUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
@@ -12,6 +11,10 @@ class ArticleUploader < CarrierWave::Uploader::Base
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
+  version :small_thumb do
+    process resize_to_fit: [150, 150]
   end
 
   def extension_allowlist
@@ -34,9 +37,6 @@ class ArticleUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  # version :thumb do
-  #   process resize_to_fit: [50, 50]
-  # end
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:

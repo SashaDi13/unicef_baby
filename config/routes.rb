@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get :search, to: 'search#search'
+
   root to: 'static_pages#main'
   get 'about', to: 'static_pages#about'
   # get 'advises', to: 'static_pages#advises'
