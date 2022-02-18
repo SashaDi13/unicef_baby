@@ -1,0 +1,22 @@
+.container.z-ind
+  h2.header-second.my-5.text-center Результати пошуку
+  - if @results.blank?
+    p
+      | Не знайдено результатів по &nbsp;
+      strong = params[:query]
+  - else
+
+    .mb
+      .row.justify-content-center
+        .col-8
+          - @results.each do |group, records|
+            - if group.to_s == "Article"
+
+              h3.header-second.my-5.main-color Статті
+              - records.each do |record|
+                  = render partial: 'search/article', locals: { article: record }
+            - else
+
+              h3.header-second.my-5.main-color Документи
+              - records.each do |record|
+                  = render partial: 'search/document', locals: { document: record }

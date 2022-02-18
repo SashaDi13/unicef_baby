@@ -19,6 +19,9 @@ gem 'rails-controller-testing'
 gem 'webpacker', '~> 5.0'
 gem 'meta-tags'
 
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
+
 gem 'rswag-api'
 gem 'rswag-ui'
 

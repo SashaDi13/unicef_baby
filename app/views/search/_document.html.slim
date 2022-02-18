@@ -1,0 +1,11 @@
+.row.bg-white.align-items-center.text-start.p-3.rounded-6.shadow
+  .rounded-6.bg-white.col-3.align-items-center
+      - if document.file_preview.present? && document.thumbable?
+        = image_tag document.file_preview.url(:small_thumb), class: "bg-white py"
+
+      - else
+        = image_tag "default_image.png", class: 'default_image'
+
+  .py-2.bg-white.col-5
+    h5.card-title.about-header.art-header = document.title
+    .mh-descr.text-descr.pb-2.select-text.mt-0 = document.description.html_safe

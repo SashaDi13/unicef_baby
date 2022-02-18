@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   mount_uploader :image, ArticleUploader
 
   AGE = ["0-3 місяці", "3-6 місяців", "6-9 місяців",
@@ -58,4 +60,6 @@ class Article < ApplicationRecord
       all
     end
   end
+
+  index_name [Rails.env, model_name.collection.gsub(/\//, '-')].join('_')
 end
