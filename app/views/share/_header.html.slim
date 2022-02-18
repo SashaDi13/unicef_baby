@@ -21,7 +21,7 @@
         li.nav-item.ms-5.menu-link
           = link_to "Контакти", contact_path, class: "nav-link menu #{active(contact_path)}"
 
-      = form_tag search_path, method: "GET" do
+      = form_tag search_path, method: :get do
         .d-flex.justify-content-end
           = text_field_tag :query, params[:query], class: "input form-control me-2 btn-br inp"
           = button_tag "", class: "btn "  do

@@ -1,6 +1,6 @@
 .row.bg-white.align-items-center.text-start.p-3.rounded-6.shadow
   .rounded-6.bg-white.col-3.align-items-center
-      - if document.thumbable?
+      - if document.file_preview.present? && document.thumbable?
         = image_tag document.file_preview.url(:small_thumb), class: "bg-white py"
 
       - else

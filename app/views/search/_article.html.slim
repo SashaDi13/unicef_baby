@@ -1,7 +1,7 @@
 = link_to category_article_path(article.category, article), class: "btn btn-more btn-more" do
   .row.bg-white.align-items-center.text-start.p-3.rounded-6.shadow
     .rounded-6.p-1.bg-white.col-2.align-items-center
-      = image_tag article.image.small_thumb.url if article.image.url
+      = image_tag article.image.small_thumb.url if article.image.present?
     .py-2.bg-white.col-10
       h5.card-title.about-header.art-header = article.title
       .pb-1.px-2

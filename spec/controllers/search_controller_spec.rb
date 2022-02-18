@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe SearchController, type: :controller do
-  let!(:article) { create(:article) }
-  let!(:document) { create(:document)}
+RSpec.describe SearchController, elasticsearch: true, type: :controller do
+  let!(:article) { create(:article, title: "Ім'я") }
+  let!(:document) { create(:document, title: "Категорія")}
 
   before do
     create_list(:article, 5)
@@ -13,29 +13,26 @@ RSpec.describe SearchController, type: :controller do
 
   describe "GET /search" do
 
-    let!(:article_1) { create(:article, title: "Ім'я" ) }
-
-    it 'should be indexed' do
-      get search_path(query: "Ім'я")
-      expect(response.body.records.length).to eq(1)
-    end
-
     context "article" do
+
       it 'find article with title' do
-          get search_path(query: article.title)
+        get search_path(query: "Ім'я")
         expect(response.body).to include(article.title)
+        expect(Article.records.length).to eq(1)
       end
 
       it 'find article with description' do
-          get search_path(query: article.description)
+          get search_path(query: article.description.split[0])
         expect(response.body).to include(article.description)
       end
     end
 
     context "document" do
+
       it 'should find document with title' do
-        get search_path(query: document.title)
+        get search_path(query: "Категорія")
         expect(response.body).to include(document.title)
+        expect(Document.records.length).to eq(1)
       end
 
       it 'should find document with description' do
@@ -50,10 +47,10 @@ RSpec.describe SearchController, type: :controller do
     end
 
     it 'return several results' do
-      article.first.update(title: 'Додаток 1')
-      document.first.update(title: 'Додаток 1')
-      get search_path('Додаток 1')
-      expect(response.body.records.length).to eq(2)
+      article.update(title: 'Додаток 1')
+      document.update(title: 'Додаток 1')
+      get search_path(query: 'Додаток 1')
+      expect(response.body).to include(article.title).twice
     end
   end
 end

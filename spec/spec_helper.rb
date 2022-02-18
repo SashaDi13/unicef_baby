@@ -14,9 +14,29 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  config.before(:each, elasticsearch: true) do
-    [Article, Document].each do |model|
-      model.__elasticsearch__.create_index!(force: true)
+  config.before :each, elasticsearch: true do
+    ActiveRecord::Base.descendants.each do |model|
+      if model.respond_to?(:__elasticsearch__)
+        begin
+          model.__elasticsearch__.create_index!
+          model.__elasticsearch__.refresh_index!
+        rescue Elasticsearch::Transport::Transport::Errors::NotFound => e
+          STDERR.puts "There was an error creating the elasticsearch index for #{model.name}: #{e.inspect}"
+        end
+      end
+    end
+  end
+
+  # Delete indexes for all elastic searchable models to ensure clean state between tests
+  config.after :each, elasticsearch: true do
+    ActiveRecord::Base.descendants.each do |model|
+      if model.respond_to?(:__elasticsearch__)
+        begin
+          model.__elasticsearch__.delete_index!
+        rescue Elasticsearch::Transport::Transport::Errors::NotFound => e
+          STDERR.puts "There was an error removing the elasticsearch index for #{model.name}: #{e.inspect}"
+        end
+      end
     end
   end
 end

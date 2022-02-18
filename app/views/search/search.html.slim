@@ -1,6 +1,6 @@
 .container.z-ind
   h2.header-second.my-5.text-center Результати пошуку
-  - if params[:query]
+  - if params[:query].present?
     - if @results.blank?
       p
         | Не знайдено результатів по &nbsp;
