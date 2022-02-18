@@ -22,7 +22,7 @@ RSpec.describe SearchController, elasticsearch: true, type: :controller do
       end
 
       it 'find article with description' do
-          get search_path(query: article.description.split[0])
+        get search_path(query: article.description.split[0])
         expect(response.body).to include(article.description)
       end
     end
