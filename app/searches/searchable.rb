@@ -1,10 +1,8 @@
 module Searchable
 
-  # extend ActiveSupport::Concern
-
   class MySearch
     def initialize(query)
-      @search = query
+      @query = query
     end
 
     def search_property
@@ -14,7 +12,7 @@ module Searchable
             bool: {
               must: {
                 multi_match: {
-                  query: @search,
+                  query: @query,
                   fields: ["title", "description"]
                 }
               },
@@ -22,7 +20,7 @@ module Searchable
               should: {
                 match: {
                   title: {
-                    query: @search,
+                    query: @query,
                     boost: 2
                   }
                 }

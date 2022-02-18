@@ -1,0 +1,5 @@
+= form_tag search_path, method: "GET" do
+  .d-flex.align-items-center.input-group.bg-white.search-input.ps-0
+    = text_field_tag :query, params[:query], placeholder: "Пошук..", class: "bg-white border-0 active-none w-5"
+    = button_tag "", class: "btn btn-outline-secondary border-0 btn-p"  do
+      i.fas.fa-search.text
