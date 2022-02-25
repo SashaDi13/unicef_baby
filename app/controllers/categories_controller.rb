@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   def show
     @category = resource
     @articles = @category.articles.search(params[:search])
+    session["search_#{@category.id}"] = request.url if params[:search].present?
   end
 
   private

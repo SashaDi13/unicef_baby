@@ -5,7 +5,7 @@
     .row.row-cols-xl-5.row-cols-lg-3.row-cols-md-2.row-cols-1.g-4.mt-5
       - Category.all.each do |category|
         .col
-          = link_to category_path(category) do
+          = link_to category_link(category) do
             .card.shadow.p-3.bg-white.border-0.text-center.rounded-3
               .card-body
                 = image_tag "advises/#{category.id}.png", class: "mb-3"
