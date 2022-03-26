@@ -5,10 +5,19 @@
         tr
           th User ID
           th User Name
+          th
         tbody
           - @users.each do |user|
             tr
               td = user.id
               td.user_name = user.name
+              td data-action="click->users#modalUser" data-users-target="user"
+                |Show in tree
+              .modal data-controller="modal" data-users-target="modal"
+                .modal-dialog
+                  .modal-content
+                    .text-end.pe-1
+                     i class="fa-solid fa-xmark" data-action="click->modal#close"
+                    = render partial: "users/tree", locals: { user: user }
 
   = render partial: "users/form_import"

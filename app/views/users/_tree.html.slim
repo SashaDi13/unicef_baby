@@ -1,0 +1,3 @@
+.container.z-ind data-controller="team" data-team-hidden-class="hidden" data-team-right-class="fa-caret-right" data-team-down-class="fa-caret-down" data-users-target="tree"
+  - manager(user).sort.each do|user|
+    = render partial: "users/user", locals: { user: user }

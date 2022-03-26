@@ -1,0 +1,16 @@
+.card.round-6.shadow.mb-3 data-team-target="modal_user" data-action="click->team#toggleTeam"
+  .card-body
+    .row.justify-content-start.text-center.p-2
+      .col-8.user-name
+        = user.name
+      .col-3 data-team-target="team_count"
+
+        = User.team(user).count if User.team(user).count > 0
+      .col-1
+        i.fa-solid.fa-caret-right
+
+.row.justify-content-center.text-center.hidden data-team-target="team"
+  .col-10
+    - if User.team(user).count > 0
+      - User.team(user).sort.each do |user|
+        = render partial: "users/team", locals: { user: user }
