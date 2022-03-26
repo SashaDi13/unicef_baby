@@ -37,4 +37,8 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show], path: 'advises' do
     resources :articles, only: [:show, :edit, :destroy, :update]
   end
+
+  resources :users, only: :index do
+    collection { post :import, to: "users#import" }
+  end
 end

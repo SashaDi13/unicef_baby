@@ -1,0 +1,14 @@
+.container.z-ind.mb-5 data-controller="users"
+  - if @users.present?
+    table.table.bg-white
+      thead
+        tr
+          th User ID
+          th User Name
+        tbody
+          - @users.each do |user|
+            tr
+              td = user.id
+              td.user_name = user.name
+
+  = render partial: "users/form_import"

@@ -10,6 +10,9 @@ gem "aws-sdk-s3", require: false
 
 gem 'pg'
 
+gem 'roo'
+gem 'roo-xls'
+
 gem 'stimulus-rails'
 gem 'factory_bot_rails'
 gem 'puma', '~> 5.0'
