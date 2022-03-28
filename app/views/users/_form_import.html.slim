@@ -1,0 +1,7 @@
+.mt-5
+  = simple_form_for :import, url: import_users_path do |f|
+    = f.input :file, as: :file,
+                          input_html: { class: "text-center form-control-lg my-3 form-font-size",
+                                        id: "formFileLg" },
+                          label: false
+    = f.button :submit, "Import", class: "btn-lg form-btn-color form-br-color"
