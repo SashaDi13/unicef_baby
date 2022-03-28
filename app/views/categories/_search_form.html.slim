@@ -7,16 +7,16 @@
 
   .col-xl-2.col-md-3.me-inp
     .bg-white.form-control-lg.search-input.mb-3 data-action="click->search#toggleAgeList submit->search#hideList"
-      .btn-select.select-text.mb-0.pt-3.pb-3 data-search-target="age_count" data-action="click->search#setCountAge"
+      .btn-select.select-text.mb-0.pt-3.pb-3 data-search-target="ageCount" data-action="click->search#setCountAge"
 
-    .bg-white.form-control-lg.mdl.search-input.pt-3.pe-5.pb-0.hidden data-search-target="all_age_list"
+    .bg-white.form-control-lg.mdl.search-input.pt-3.pe-5.pb-0.hidden data-search-target="allAgeList"
       .select-text
         = check_box_tag "", "", true, class: "me-2 main-color check-box", data: { action: "click->search#setAllAges click->search#search"}
-        span data-search-target="checkbox_age"
+        span data-search-target="checkboxAge"
         span Будь який вік
       br
 
-      div data-search-target="age_list"
+      div data-search-target="ageList"
         - Article::AGE.each do |age|
           .select-text
             = check_box_tag "search[age][]", age, check_filter_value?(age, :age), class: "me-2 main-color check-box", data: { action: "click->search#setCountAge click->search#search"}
@@ -25,16 +25,16 @@
 
   .col-xl-3.col-md-4.me-inp
     .bg-white.form-control-lg.search-input.mb-3 data-action="click->search#toggleSubjectList submit->search#hideList"
-      .btn-select.select-text.mb-0.pt-3.pb-3 data-search-target="subject_count" data-action="click->search#setCountSubject"
+      .btn-select.select-text.mb-0.pt-3.pb-3 data-search-target="subjectCount" data-action="click->search#setCountSubject"
 
-    .bg-white.form-control-lg.search-input.pt-3.p-sbj.hidden.mdl data-search-target="all_subject_list"
+    .bg-white.form-control-lg.search-input.pt-3.p-sbj.hidden.mdl data-search-target="allSubjectList"
       .select-text
         = check_box_tag "", "", true, class: "me-2 main-color check-box", data: { action: "click->search#setAllSubjects click->search#search"}
-        span data-search-target="checkbox_subject"
+        span data-search-target="checkboxSubject"
         span Всі теми
       br
 
-      div data-search-target="subject_list"
+      div data-search-target="subjectList"
         - Article::SUBJECT.each do |subject|
           .select-text
             = check_box_tag "search[subject][]", subject, check_filter_value?(subject, :subject), class: "me-2 main-color check-box", data: { action: "click->search#setCountSubject click->search#search"}

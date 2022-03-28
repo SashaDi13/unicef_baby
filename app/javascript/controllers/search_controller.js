@@ -2,7 +2,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = [ "results", "form", "checkbox_age", "checkbox_subject", "age_list", "all_age_list", "subject_list", "all_subject_list", "age_count", "subject_count"]
+  static targets = [ "results", "form", "checkboxAge", "checkboxSubject", "ageList", "allAgeList", "subjectList", "allSubjectList", "ageCount", "subjectCount"]
   static classes = [ "hidden", "checkbox" ]
 
   connect() {
@@ -22,38 +22,38 @@ export default class extends Controller {
   }
 
   toggleAgeList() {
-    this.all_age_listTarget.classList.toggle(this.hiddenClass)
+    this.allAgeListTarget.classList.toggle(this.hiddenClass)
   }
 
   toggleSubjectList() {
-    this.all_subject_listTarget.classList.toggle(this.hiddenClass)
+    this.allSubjectListTarget.classList.toggle(this.hiddenClass)
   }
 
   hideAgeList() {
-    this.all_age_listTarget.classList.add(this.hiddenClass)
+    this.allAgeListTarget.classList.add(this.hiddenClass)
   }
 
   hideSubjectList() {
-    this.all_subject_listTarget.classList.add(this.hiddenClass)
+    this.allSubjectListTarget.classList.add(this.hiddenClass)
   }
 
 // Counting selected ages
 
   setCountAge() {
-    if (this.hasAge_countTarget) {
+    if (this.hasageCountTarget) {
       const count = this.selectedCheckboxesAge.length;
       if (count == 0 || count == this.checkboxes_age.length) {
-        this.age_countTarget.innerHTML = "Будь-який вік";
+        this.ageCountTarget.innerHTML = "Будь-який вік";
         return this.checkboxes_age.filter((c) => c.checked = false);
       } else {
-        this.age_countTarget.innerHTML = `Вік: ${count} вибрано`;
+        this.ageCountTarget.innerHTML = `Вік: ${count} вибрано`;
       }
     }
   }
 
   defaultAllAges() {
     if (this.selectedCheckboxesAge.length > 0) {
-      this.checkbox_ageTarget.classList.add(this.checkboxClass);
+      this.checkboxAgeTarget.classList.add(this.checkboxClass);
       this.selectedCheckboxeAllAge[0].checked = false;
     }
   }
@@ -74,30 +74,30 @@ export default class extends Controller {
   }
 
   get checkboxes_age() {
-    return new Array(...this.age_listTarget.querySelectorAll("input[type=checkbox]"));
+    return new Array(...this.ageListTarget.querySelectorAll("input[type=checkbox]"));
   }
 
   get checkboxe_all_age() {
-    return new Array(...this.all_age_listTarget.querySelectorAll("input[type=checkbox]"));
+    return new Array(...this.allAgeListTarget.querySelectorAll("input[type=checkbox]"));
   }
 
   // Counting selected Subjects
 
   setCountSubject() {
-    if (this.hasSubject_countTarget) {
+    if (this.hassubjectCountTarget) {
       const count = this.selectedCheckboxesSubject.length;
       if (count == 0 || count == this.checkboxes_subject.length) {
-        this.subject_countTarget.innerHTML = "Всі теми";
+        this.subjectCountTarget.innerHTML = "Всі теми";
         return this.checkboxes_subject.filter((c) => c.checked = false)
       } else {
-        this.subject_countTarget.innerHTML = `Теми: ${count} вибрано`;
+        this.subjectCountTarget.innerHTML = `Теми: ${count} вибрано`;
       }
     }
   }
 
   defaultAllSubjects() {
     if (this.selectedCheckboxesSubject.length > 0) {
-      this.checkbox_subjectTarget.classList.add(this.checkboxClass)
+      this.checkboxSubjectTarget.classList.add(this.checkboxClass)
       this.selectedCheckboxeAllSubject[0].checked = false;
     }
   }
@@ -118,10 +118,10 @@ export default class extends Controller {
   }
 
   get checkboxes_subject() {
-    return new Array(...this.subject_listTarget.querySelectorAll("input[type=checkbox]"));
+    return new Array(...this.subjectListTarget.querySelectorAll("input[type=checkbox]"));
   }
 
   get checkboxe_all_subject() {
-    return new Array(...this.all_subject_listTarget.querySelectorAll("input[type=checkbox]"));
+    return new Array(...this.allSubjectListTarget.querySelectorAll("input[type=checkbox]"));
   }
 }

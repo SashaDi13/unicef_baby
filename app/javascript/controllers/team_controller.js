@@ -2,7 +2,7 @@
 import { Controller } from "stimulus"
 
 export default class extends Controller {
-  static targets = ["team_count", "modal_user", "team"];
+  static targets = ["teamCount", "modalUser", "team"];
   static classes = ["hidden", "right", "down"];
 
   defaultTeam(user_name) {
@@ -37,7 +37,7 @@ export default class extends Controller {
   }
 
   get modalUsers() {
-    return new Array(...this.modal_userTargets);
+    return new Array(...this.modalUserTargets);
   }
 
   get teams() {
@@ -45,6 +45,6 @@ export default class extends Controller {
   }
 
   get teamCounter() {
-    return new Array(...this.team_countTargets);
+    return new Array(...this.teamCountTargets);
   }
 }

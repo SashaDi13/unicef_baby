@@ -15,7 +15,7 @@ module Importable
           end
 
           if j == 0
-            parent_id = 0
+            parent_id = NIL
           else
             row = i
 
